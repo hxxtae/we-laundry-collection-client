@@ -19,10 +19,10 @@ class Https implements IHttps {
     this.client = axios.create({
       baseURL: this.BASE_URL,
       headers: {
-        'Content-Type': 'application/json;',
+        'Content-Type': 'application/json',
       },
       withCredentials: true,
-    })
+    });
   }
 
   async fetch(url: string, options: Options): Promise<AxiosResponse> {
@@ -43,7 +43,7 @@ class Https implements IHttps {
       if (err.response) {
         const data = err.response.data;
         const message = data && data.message ? data.message : 'Server went wrong';
-        console.log(message);
+        console.log(`https message: ${message}`);
         throw new Error(message);
       }
       throw new Error('connection error');

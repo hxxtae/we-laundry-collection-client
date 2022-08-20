@@ -2,8 +2,9 @@ import { AxiosResponse } from 'axios';
 import Https from '../../../service/https';
 
 interface ICollectionApi {
-  selectDatas: () => Promise<AxiosResponse>
-  deleteData: (name: string) => Promise<AxiosResponse>
+  selectDatas: () => Promise<AxiosResponse>;
+  deleteData: (name: string) => Promise<AxiosResponse>;
+  deleteDatas: (names: string[]) => Promise<AxiosResponse>;
 }
 
 class CollectionApi implements ICollectionApi {
@@ -21,9 +22,18 @@ class CollectionApi implements ICollectionApi {
   };
 
   async deleteData(name: string): Promise<AxiosResponse> {
+    const data = await this.https.fetch(`/collections/${name}`, {
+      method: 'DELETE',
+    });
+    return data;
+  }
+
+  async deleteDatas(names: string[]): Promise<AxiosResponse> {
     const data = await this.https.fetch('/collections', {
       method: 'DELETE',
-      body: JSON.stringify({ name }),
+      body: JSON.stringify({
+        names,
+      }),
     });
     return data;
   }

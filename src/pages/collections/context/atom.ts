@@ -7,7 +7,7 @@ const httpService = new Https(baseURL);
 const collectionApi = new CollectionApi(httpService);
 
 export const thisApi = atom({
-  key: 'collectionApi',
+  key: 'collectionApiKey',
   default: collectionApi,
 });
 
