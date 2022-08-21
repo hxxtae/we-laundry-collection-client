@@ -1,9 +1,16 @@
 import React from 'react';
+import LoginRouter from './router/LoginRouter';
 import MainRouter from './router/MainRouter';
 
 function App() {
   return (
-    <MainRouter />
+    <>
+      {
+        false ?
+          <MainRouter /> :
+          <LoginRouter />
+      }
+    </>
   );
 }
 
