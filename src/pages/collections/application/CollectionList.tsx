@@ -29,7 +29,7 @@ function CollectionList() {
     }
     const check = window.confirm(`Delete the [ ${data} ] collection?`);
     if (check) {
-      delData(data, {
+      delLoading || delData(data, {
         onSuccess: () => method.reset()
       });
     }
@@ -42,7 +42,7 @@ function CollectionList() {
     }
     const check = window.confirm(`Delete the [ ${datas.length} ] collections?`);
     if (check) {
-      delDatas(datas, {
+      delsLoading || delDatas(datas, {
         onSuccess: () => method.reset()
       });
     }
