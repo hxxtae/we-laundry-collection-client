@@ -9,4 +9,9 @@ const loginApi = new LoginApi(https);
 export const thisApi = atom({
   key: 'loginApiKey',
   default: loginApi,
-})
+});
+
+export const managerAuth = atom<string | undefined>({
+  key: 'managerAuthKey',
+  default: undefined,
+});

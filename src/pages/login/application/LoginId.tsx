@@ -14,7 +14,8 @@ function LoginId() {
           required: "Please enter the id",
         })}
           autoComplete="off"
-        placeholder="Manager ID"/>
+          placeholder="Manager ID"
+        />
       </label>
       <ErrorMessage>{errors.admin_id?.message}</ErrorMessage>
     </Wrapper>

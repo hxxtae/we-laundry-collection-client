@@ -1,28 +1,36 @@
+import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import Loadings from '../../../components/Loadings';
 import { colors } from '../../../utils/config';
+import { useLogin } from '../custom_hooks/useLogin';
 
 import { ILoginForm } from '../dto/dto';
 import LoginId from './LoginId';
 import LoginPw from './LoginPw';
 
 function LoginForm() {  
-
+  const { login, isLoading } = useLogin();
   const method = useForm<ILoginForm>();
-  const onSubmit = () => {
-    console.log('submit!');
+  const onSubmit = ({ admin_id, admin_pw }: ILoginForm) => {
+    const data = { admin_id, admin_pw };
+    isLoading || login(data);
   }
 
   return (
-    <Section>
-      <FormProvider {...method}>
-        <Form onSubmit={method.handleSubmit(onSubmit)}>
-          <LoginId />
-          <LoginPw />
-          <Submit type="submit">Log in</Submit>
-        </Form>
-      </FormProvider>
-    </Section>
+    <>
+      <Section>
+        <FormProvider {...method}>
+          <Form onSubmit={method.handleSubmit(onSubmit)}>
+            <LoginId />
+            <LoginPw />
+            <Submit type="submit">Log in</Submit>
+          </Form>
+        </FormProvider>
+      </Section>
+
+      {isLoading && <Loadings />}
+    </>
   )
 }
 
