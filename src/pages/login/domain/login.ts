@@ -6,6 +6,7 @@ import { ILoginForm } from '../dto/dto';
 interface ILoginApi {
   login: ({ admin_id, admin_pw }: ILoginForm) => Promise<AxiosResponse>;
   logout: () => Promise<AxiosResponse>;
+  me: () => Promise<AxiosResponse>;
 }
 
 class LoginApi implements ILoginApi {
@@ -43,6 +44,17 @@ class LoginApi implements ILoginApi {
     });
     return data;
   };
+
+  /**
+   * manager 로그인 확인 API Function
+   * @returns {Promise<AxiosResponse>}
+   */
+  async me(): Promise<AxiosResponse> {
+    const data = await this.https.fetch('/auth/me', {
+      method: 'GET',
+    });
+    return data;
+  }
 }
 
 export default LoginApi;
