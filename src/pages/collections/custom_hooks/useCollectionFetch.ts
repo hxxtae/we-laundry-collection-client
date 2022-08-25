@@ -9,7 +9,7 @@ import { CollectionDTO } from '../dto/dto';
 interface ICollectionFetch {
   isCollectLoading: boolean;
   isCollectFetching: boolean;
-  collectData: CollectionDTO[] | undefined;
+  collectData?: CollectionDTO[] | [];
   collectLength: number;
 }
 
@@ -27,7 +27,7 @@ export const useCollectionFetch = (): ICollectionFetch => {
     }
   });
   
-  const thisLength = data?.data ? data.data.length : 0;
+  const thisLength: number = data?.data ? data.data.length : 0;
 
   return {
     isCollectLoading: isLoading,
