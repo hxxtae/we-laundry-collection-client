@@ -9,7 +9,7 @@ function CollectionHeader() {
         <Circle>
           <CircleShadow />
         </Circle>
-        <Title>Welaundry DB <strong>collection</strong> list</Title>
+        <Title>Welaundry DB <strong>collection</strong>&nbsp;list</Title>
       </Contain>
     </Section>
   )

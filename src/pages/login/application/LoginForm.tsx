@@ -1,11 +1,10 @@
-import { useState } from 'react';
-import { FormProvider, useForm } from 'react-hook-form';
 import styled from 'styled-components';
-import Loadings from '../../../components/Loadings';
+import { FormProvider, useForm } from 'react-hook-form';
+
 import { colors } from '../../../utils/config';
 import { useLogin } from '../custom_hooks/useLogin';
-
 import { ILoginForm } from '../dto/dto';
+import Loadings from '../../../components/Loadings';
 import LoginId from './LoginId';
 import LoginPw from './LoginPw';
 
@@ -37,8 +36,9 @@ function LoginForm() {
 export default LoginForm;
 
 const Section = styled.section`
-  width: 400px;
+  max-width: 400px;
   border-radius: 7px;
+  margin: 10px;
   overflow: hidden;
   background-color: ${colors.light};
 `;

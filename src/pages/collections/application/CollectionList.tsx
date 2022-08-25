@@ -74,7 +74,7 @@ function CollectionList() {
               {
                 isLoading ?
                   <Loading>Loading...</Loading> :
-                  collectData.map((item) => (
+                  collectData?.map((item) => (
                     <li key={item.name}>
                       {thisIdExcept(item.name) ?
                         <NotCheck /> :
