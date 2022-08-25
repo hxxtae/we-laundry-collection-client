@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil'
 import { queryKey } from '../../../utils/config';
+import { toastStyle } from '../../../utils/toastConfig';
 
 import { thisApi } from '../context/atom'
 import { CollectionDTO } from '../dto/dto';
@@ -8,7 +9,7 @@ import { CollectionDTO } from '../dto/dto';
 interface ICollectionFetch {
   isCollectLoading: boolean;
   isCollectFetching: boolean;
-  collectData: CollectionDTO[];
+  collectData: CollectionDTO[] | undefined;
   collectLength: number;
 }
 
@@ -21,8 +22,8 @@ export const useCollectionFetch = (): ICollectionFetch => {
     retry: false,
     refetchOnWindowFocus: true,
     refetchOnReconnect: 'always',
-    onError: () => {
-      console.log('useQuery - Collection Fetch Error');
+    onError: (err: any) => {
+      toastStyle.error(err.message);
     }
   });
   

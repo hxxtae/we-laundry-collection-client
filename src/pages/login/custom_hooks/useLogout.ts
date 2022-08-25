@@ -5,12 +5,12 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { toastStyle } from '../../../utils/toastConfig';
 import { managerAuth, thisApi } from '../context/login';
 
-interface ILogout {
+interface ILogoutHook {
   isLoading: boolean;
   logout: UseMutateFunction<AxiosResponse<any, any>, unknown, void, unknown>;
 }
 
-export const useLogout = (): ILogout => {
+export const useLogout = (): ILogoutHook => {
   const api = useRecoilValue(thisApi);
   const setManager = useSetRecoilState(managerAuth);
   const { isLoading, mutate } = useMutation(() => api.logout(), {

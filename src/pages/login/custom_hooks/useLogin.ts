@@ -1,23 +1,24 @@
 import { AxiosResponse } from 'axios';
-import { UseMutateFunction, useMutation } from 'react-query'
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { UseMutateFunction, useMutation } from 'react-query';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+
 import { toastStyle } from '../../../utils/toastConfig';
-
 import { managerAuth, thisApi } from '../context/login';
-import { ILoginForm } from '../dto/dto'
+import { ILogin, ILoginForm } from '../dto/dto';
 
-interface ILogin {
+interface ILoginHook {
   isLoading: boolean;
   login: UseMutateFunction<AxiosResponse<any, any>, any, ILoginForm, unknown>;
 }
 
-export const useLogin = () => {
+export const useLogin = (): ILoginHook => {
   const setManager = useSetRecoilState(managerAuth);
   const api = useRecoilValue(thisApi);
   const { isLoading, mutate } = useMutation(({ admin_id, admin_pw }: ILoginForm) => api.login({ admin_id, admin_pw }), {
     onSuccess: (data) => {
+      const managerData: ILogin = data?.data;
       toastStyle.success(`Welcome Back ${data?.data.admin_id} Manager !!`);
-      setManager(data?.data.token);
+      setManager(managerData.token);
     },
     onError: (err: any) => {
       toastStyle.error(`${err.message}`);

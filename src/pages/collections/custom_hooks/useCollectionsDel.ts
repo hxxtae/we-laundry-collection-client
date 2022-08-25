@@ -21,8 +21,8 @@ export const useCollectionsDel = (): ICollectionsDel => {
       toastStyle.success('Collections Delete Success!');
     },
     onError: (err: any) => {
-      console.log(`Client Delete Error! ${err.message}`);
-      toastStyle.error('Collections Delete Fail!');
+      console.log(`Client Delete Error : ${err.message}`);
+      toastStyle.error(err.message);
     }
   });
 
