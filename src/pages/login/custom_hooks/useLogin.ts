@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { setStorageToken } from '../../../utils/storage';
 
 import { toastStyle } from '../../../utils/toastConfig';
 import { managerAuth, thisApi } from '../context/login';
@@ -18,6 +19,7 @@ export const useLogin = (): ILoginHook => {
     onSuccess: (data) => {
       const managerData: ILogin = data?.data;
       toastStyle.success(`Welcome Back ${data?.data.admin_id} Manager !!`);
+      setStorageToken(managerData.token);
       setManager(managerData.token);
     },
     onError: (err: any) => {

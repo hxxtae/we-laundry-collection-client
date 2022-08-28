@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { removeStorageToken } from '../../../utils/storage';
 
 import { toastStyle } from '../../../utils/toastConfig';
 import { managerAuth, thisApi } from '../context/login';
@@ -16,6 +17,7 @@ export const useLogout = (): ILogoutHook => {
   const { isLoading, mutate } = useMutation(() => api.logout(), {
     onSuccess: () => {
       toastStyle.info('The Manager has logged out');
+      removeStorageToken();
       setManager(undefined);
     },
     onError: () => {

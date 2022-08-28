@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import { getStorageToken } from '../utils/storage';
 
 interface Options {
   method: string;
@@ -32,6 +33,7 @@ class Https implements IHttps {
       method,
       headers: {
         ...headers,
+        'Authorization': `Bearer ${getStorageToken()}`,
       },
       data: body,
     };
