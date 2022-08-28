@@ -10,7 +10,7 @@ function MainRouter() {
         <Route exact path={process.env.PUBLIC_URL + '/'}>
           <Index />
         </Route>
-        <Route exact path='*'>
+        <Route exact path={process.env.PUBLIC_URL + '*'}>
           <Notfound />
         </Route>
       </Switch>
