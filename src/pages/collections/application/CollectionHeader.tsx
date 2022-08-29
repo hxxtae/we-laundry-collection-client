@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+
 import { colors } from '../../../utils/config';
 import { media } from '../../../utils/mixins';
 
 function CollectionHeader() {
+  
   return (
     <Section>
       <Contain>

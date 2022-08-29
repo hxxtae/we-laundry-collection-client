@@ -1,9 +1,7 @@
 import styled from 'styled-components';
-import Containers from '../../../components/Containers';
+
 import { colors } from '../../../utils/config';
 import LoginContext from './LoginContext';
-import LoginForm from './LoginForm';
-
 
 function Index() {
   return (

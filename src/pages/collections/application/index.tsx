@@ -5,7 +5,7 @@ import { media } from '../../../utils/mixins';
 import { useLogout } from '../../login/custom_hooks/useLogout';
 import Containers from '../../../components/Containers';
 import CollectionHeader from './CollectionHeader';
-import CollectionList from './CollectionList';
+import CollectionBody from './CollectionBody';
 
 function Index() {
   const { isLoading, logout } = useLogout();
@@ -24,7 +24,7 @@ function Index() {
           </H2>
         </Wrapper>
         <CollectionHeader />
-        <CollectionList />
+        <CollectionBody />
       </>
     </Containers>
   )
