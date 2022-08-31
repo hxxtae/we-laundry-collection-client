@@ -21,7 +21,6 @@ export const useCollectionFetch = (): ICollectionFetch => {
     cacheTime: Infinity,
     retry: false,
     refetchOnWindowFocus: true,
-    refetchOnReconnect: 'always',
     onError: (err: any) => {
       toastStyle.error(err.message);
     }

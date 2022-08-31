@@ -6,6 +6,10 @@ export const queryKey = {
   auth: {
     me: ['/auth/me'] as const,
   },
+  user: {
+    all: ['/users'] as const,
+    listName: (name: string) => [...queryKey.user.all, `${name}`] as const,
+  }
 };
 
 export const colors = {
