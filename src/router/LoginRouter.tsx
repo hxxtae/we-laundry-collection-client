@@ -10,7 +10,7 @@ function LoginRouter() {
         <Route exact path={process.env.PUBLIC_URL + '/'}>
           <Index />
         </Route>
-        <Route exact path={process.env.PUBLIC_URL + '*'}>
+        <Route path='*'>
           <Notfound />
         </Route>
       </Switch>

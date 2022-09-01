@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Index from '../pages/collections/application';
+import Collections from '../pages/collections/application';
+import Users from '../pages/users/application';
 import Notfound from '../components/Notfound';
 
 function MainRouter() {
@@ -8,9 +9,10 @@ function MainRouter() {
     <BrowserRouter>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'}>
-          <Index />
+          <Collections />
+          <Users />
         </Route>
-        <Route exact path={process.env.PUBLIC_URL + '*'}>
+        <Route path='*'>
           <Notfound />
         </Route>
       </Switch>
