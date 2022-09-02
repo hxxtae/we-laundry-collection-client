@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil'
-import { queryKey } from '../../../utils/config';
-import { toastStyle } from '../../../utils/toastConfig';
+import { queryKey } from '../../../../utils/config';
+import { toastStyle } from '../../../../utils/toastConfig';
 
 import { thisApi } from '../context/atom'
-import { CollectionDTO } from '../dto/dto';
+import { CollectionDTO } from '../../application/dto/dto';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;

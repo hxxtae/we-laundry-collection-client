@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { colors, thisIdExcept } from '../../../utils/config';
-import { media, noDrag, scroll } from '../../../utils/mixins';
-import { CollectionDTO } from '../dto/dto';
+import { colors, thisIdExcept } from '../../../../../utils/config';
+import { media, noDrag, scroll } from '../../../../../utils/mixins';
+import { CollectionDTO } from '../../../application/dto/dto';
 import InputCheck from './InputCheck';
 
 interface ICollectionList {

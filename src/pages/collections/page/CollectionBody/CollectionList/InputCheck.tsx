@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 
-import { colors } from '../../../utils/config';
-import { media } from '../../../utils/mixins';
+import { colors } from '../../../../../utils/config';
+import { media } from '../../../../../utils/mixins';
 
 interface IInputCheck {
   thisName: string;

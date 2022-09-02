@@ -1,13 +1,11 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import { thisIdExcept } from '../../../utils/config';
-import { useCollectionDel } from '../custom_hooks/useCollectionDel';
-import { useCollectionFetch } from '../custom_hooks/useCollectionFetch';
-import { useCollectionsDel } from '../custom_hooks/useCollectionsDel';
-import { CollectionNamesDTO } from '../dto/dto';
-import Loadings from '../../../components/Loadings';
-import CollectionList from './CollectionList';
+import { thisIdExcept } from '../../../../utils/config';
+import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
+import { dto } from '../../application/dto';
+import Loadings from '../../../../components/Loadings';
+import { CollectionList } from './CollectionList';
 import CollectionControl from './CollectionControl';
 
 function CollectionBody() {
@@ -16,7 +14,7 @@ function CollectionBody() {
   const { delsLoading, delDatas } = useCollectionsDel();
   const isLoading = isCollectLoading || isCollectFetching;
   const isFetcing = delLoading || delsLoading;
-  const method = useForm<CollectionNamesDTO>();
+  const method = useForm<dto.CollectionNamesDTO>();
   const checkCount = method.watch().names ? method.watch().names.length : 0;
 
   const onDelete = (name: string) => {
@@ -33,7 +31,7 @@ function CollectionBody() {
     }
   }
 
-  const onSubmit = ({ names }: CollectionNamesDTO) => {
+  const onSubmit = ({ names }: dto.CollectionNamesDTO) => {
     const datas = names;
     if (!datas || !datas.length) {
       return;

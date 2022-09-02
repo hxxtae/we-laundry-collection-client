@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import Https from '../../../service/https';
+import Https from '../../../../service/https';
 
 interface ICollectionApi {
   selectDatas: () => Promise<AxiosResponse>;

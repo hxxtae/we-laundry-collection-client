@@ -5,7 +5,7 @@ import { media } from '../../../utils/mixins';
 import { useLogout } from '../../login/custom_hooks/useLogout';
 import Containers from '../../../components/Containers';
 import CollectionHeader from './CollectionHeader';
-import CollectionBody from './CollectionBody';
+import { CollectionBody } from './CollectionBody';
 
 function Index() {
   const { isLoading, logout } = useLogout();
