@@ -1,9 +1,9 @@
 import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { removeStorageToken } from '../../../utils/storage';
 
-import { toastStyle } from '../../../utils/toastConfig';
+import { removeStorageToken } from '../../../../utils/storage';
+import { toastStyle } from '../../../../utils/toastConfig';
 import { managerAuth, thisApi } from '../context/login';
 
 interface ILogoutHook {

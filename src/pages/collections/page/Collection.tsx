@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { colors } from '../../../utils/config';
 import { media } from '../../../utils/mixins';
-import { useLogout } from '../../login/custom_hooks/useLogout';
+import { useLogout } from '../../login/application/custom_hooks';
 import Containers from '../../../components/Containers';
 import CollectionHeader from './CollectionHeader';
 import { CollectionBody } from './CollectionBody';

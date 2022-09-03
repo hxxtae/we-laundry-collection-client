@@ -1,10 +1,10 @@
-import { AxiosInstance, AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 
-import Https from '../../../service/https';
-import { ILoginForm } from '../dto/dto';
+import Https from '../../../../service/https';
+import { dto } from '../dto';
 
 interface ILoginApi {
-  login: ({ admin_id, admin_pw }: ILoginForm) => Promise<AxiosResponse>;
+  login: ({ admin_id, admin_pw }: dto.ILoginForm) => Promise<AxiosResponse>;
   logout: () => Promise<AxiosResponse>;
   me: () => Promise<AxiosResponse>;
 }
@@ -21,9 +21,9 @@ class LoginApi implements ILoginApi {
    * @param {Object} ILoginForm - Login Form
    * @param {string} ILoginForm.admin_id - manager id
    * @param {string} ILoginForm.admin_pw - manager password
-   * @returns {Promise<AxiosInstance>}
+   * @returns {Promise<AxiosResponse>}
    */
-  async login({admin_id, admin_pw}: ILoginForm): Promise<AxiosResponse> {
+  async login({admin_id, admin_pw}: dto.ILoginForm): Promise<AxiosResponse> {
     const data = await this.https.fetch('/auth/login', {
       method: 'POST',
       body: JSON.stringify({

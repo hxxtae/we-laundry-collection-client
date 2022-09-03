@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { useFormContext } from 'react-hook-form';
 
-import { colors } from '../../../utils/config';
+import { colors } from '../../../../../utils/config';
 
 function LoginPw() {
   const { register, formState: { errors } } = useFormContext<{admin_pw: string}>();

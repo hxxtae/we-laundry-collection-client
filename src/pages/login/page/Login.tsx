@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
 import { colors } from '../../../utils/config';
-import LoginContext from './LoginContext';
+import { LoginContext } from './LoginContext';
 
-function Index() {
+function Login() {
   return (
     <Wrapper>
       <LoginContext />
@@ -16,7 +16,7 @@ function Index() {
   )
 }
 
-export default Index;
+export default Login;
 
 const Wrapper = styled.div`
   position: relative;

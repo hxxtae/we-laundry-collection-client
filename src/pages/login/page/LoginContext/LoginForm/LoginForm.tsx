@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { colors } from '../../../utils/config';
-import { useLogin } from '../custom_hooks/useLogin';
-import { ILoginForm } from '../dto/dto';
-import Loadings from '../../../components/Loadings';
+import { colors } from '../../../../../utils/config';
+import { useLogin } from '../../../application/custom_hooks';
+import { dto } from '../../../application/dto';
+import Loadings from '../../../../../components/Loadings';
 import LoginId from './LoginId';
 import LoginPw from './LoginPw';
 
 function LoginForm() {  
   const { login, isLoading } = useLogin();
-  const method = useForm<ILoginForm>();
-  const onSubmit = ({ admin_id, admin_pw }: ILoginForm) => {
+  const method = useForm<dto.ILoginForm>();
+  const onSubmit = ({ admin_id, admin_pw }: dto.ILoginForm) => {
     const data = { admin_id, admin_pw };
     isLoading || login(data);
   }

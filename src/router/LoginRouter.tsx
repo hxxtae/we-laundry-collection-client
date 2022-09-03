@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Notfound from '../components/Notfound';
-import Index from '../pages/login/application';
+import Index from '../pages/login/page/Login';
 
 function LoginRouter() {
   return (
