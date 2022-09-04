@@ -1,7 +1,7 @@
 import Containers from '../../../components/Containers';
-import UserBody from './UserBody';
+import { UserBody } from './UserBody';
 
-function Index() {
+function User() {
   return (
     <Containers>
       <UserBody />
@@ -9,6 +9,6 @@ function Index() {
   )
 }
 
-export default Index;
+export default User;
 
 

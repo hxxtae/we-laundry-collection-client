@@ -1,14 +1,14 @@
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil'
 
-import { queryKey } from '../../../utils/config';
+import { queryKey } from '../../../../utils/config';
 import { thisApi } from '../context/atom';
-import { IUser } from '../dto/dto';
+import { dto } from '../dto';
 
 interface IUserFetch {
   isUserLoading: boolean;
   isUserFetching: boolean;
-  userDatas: IUser[] | [] | undefined;
+  userDatas: dto.IUser[] | [] | undefined;
   userLength: number;
 }
 
