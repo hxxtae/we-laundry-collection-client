@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-import { colors, thisIdExcept } from '../../../../../utils/config';
-import { media, noDrag, scroll } from '../../../../../utils/mixins';
-import { CollectionDTO } from '../../../application/dto/dto';
+import { colors, thisIdExcept, media, noDrag, scroll } from '../../../../../utils';
+import { dto } from '../../../application/dto';
 import InputCheck from './InputCheck';
 
 interface ICollectionList {
   isLoading: boolean;
-  collections: CollectionDTO[] | [] | undefined;
+  collections: dto.CollectionDTO[] | [] | undefined;
   onDelete: (name: string) => void;
 }
 

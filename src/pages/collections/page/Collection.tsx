@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-import { colors } from '../../../utils/config';
-import { media } from '../../../utils/mixins';
+import { colors, media } from '../../../utils';
 import { useLogout } from '../../login/application/custom_hooks';
-import Containers from '../../../components/Containers';
-import CollectionHeader from './CollectionHeader';
+import { Containers } from '../../../components';
 import { CollectionBody } from './CollectionBody';
+import CollectionHeader from './CollectionHeader';
 
 function Index() {
   const { isLoading, logout } = useLogout();

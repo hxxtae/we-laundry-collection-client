@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import Https from '../../../service/https';
+import Https from '../../../../service/https';
 import User from '../domain/user';
 
 const baseURL = process.env.REACT_APP_BASE_URL!;

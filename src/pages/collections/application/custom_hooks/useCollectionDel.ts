@@ -3,8 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { AxiosResponse } from 'axios';
 
 import { thisApi } from '../context/atom';
-import { toastStyle } from '../../../../utils/toastConfig';
-import { queryKey } from '../../../../utils/config';
+import { toastStyle, queryKey } from '../../../../utils';
 
 interface ICollectionDel {
   delLoading: boolean;

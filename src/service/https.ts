@@ -1,4 +1,5 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
+
 import { getStorageToken } from '../utils/storage';
 
 interface Options {

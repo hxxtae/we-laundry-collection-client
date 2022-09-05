@@ -1,10 +1,10 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import styled from 'styled-components';
 
-import { thisIdExcept } from '../../../../utils/config';
+import { thisIdExcept } from '../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
 import { dto } from '../../application/dto';
-import Loadings from '../../../../components/Loadings';
+import { Loadings } from '../../../../components';
 import { CollectionList } from './CollectionList';
 import CollectionControl from './CollectionControl';
 
@@ -31,7 +31,7 @@ function CollectionBody() {
     }
   }
 
-  const onSubmit = ({ names }: dto.CollectionNamesDTO) => {
+  const onDeletes = ({ names }: dto.CollectionNamesDTO) => {
     const datas = names;
     if (!datas || !datas.length) {
       return;
@@ -52,7 +52,7 @@ function CollectionBody() {
     <>
       <Section>
         <FormProvider {...method}>
-          <form onSubmit={method.handleSubmit(onSubmit)}>
+          <form onSubmit={method.handleSubmit(onDeletes)}>
             <CollectionControl total={collectLength} checkCount={checkCount} onReset={onReset} />
             <CollectionList isLoading={isLoading} collections={collectData} onDelete={onDelete} />
           </form>

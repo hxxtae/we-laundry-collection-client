@@ -1,15 +1,14 @@
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil'
-import { queryKey } from '../../../../utils/config';
-import { toastStyle } from '../../../../utils/toastConfig';
 
+import { queryKey, toastStyle } from '../../../../utils';
 import { thisApi } from '../context/atom'
-import { CollectionDTO } from '../../application/dto/dto';
+import { dto } from '../../application/dto';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;
   isCollectFetching: boolean;
-  collectData?: CollectionDTO[] | [];
+  collectData?: dto.CollectionDTO[] | [];
   collectLength: number;
 }
 
