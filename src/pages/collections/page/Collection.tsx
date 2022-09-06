@@ -6,7 +6,7 @@ import { Containers } from '../../../components';
 import { CollectionBody } from './CollectionBody';
 import CollectionHeader from './CollectionHeader';
 
-function Index() {
+function Collection() {
   const { isLoading, logout } = useLogout();
   const onLogout = () => {
     return isLoading || logout();
@@ -29,7 +29,7 @@ function Index() {
   )
 }
 
-export default Index;
+export default Collection;
 
 const Wrapper = styled.div`
   display: flex;

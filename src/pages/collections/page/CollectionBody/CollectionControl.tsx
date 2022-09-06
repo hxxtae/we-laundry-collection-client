@@ -19,7 +19,7 @@ function CollectionControl({ total, checkCount, onReset }: ICollectionControl) {
       <Control>
         <Reset type="button" onClick={onReset}>Reset</Reset>
         <Deletes type="submit" chk={ checkCount }>
-          <img src="./assets/svg/trash-can-solid.svg" alt="delete all" />
+          <img src="./assets/svg/trash-can-solid.svg" alt="delete all button of collection" />
           <CheckNum>{ checkCount }</CheckNum>
         </Deletes>
       </Control>
