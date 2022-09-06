@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { thisIdExcept } from '../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
 import { dto } from '../../application/dto';
-import { Loadings } from '../../../../components';
 import { CollectionList } from './CollectionList';
 import CollectionControl from './CollectionControl';
 
@@ -13,7 +12,7 @@ function CollectionBody() {
   const { delLoading, delData } = useCollectionDel();
   const { delsLoading, delDatas } = useCollectionsDel();
   const isLoading = isCollectLoading || isCollectFetching;
-  const isFetcing = delLoading || delsLoading;
+  const isMutating = delLoading || delsLoading;
   const method = useForm<dto.CollectionNamesDTO>();
   const checkCount = method.watch().names ? method.watch().names.length : 0;
 
@@ -49,18 +48,14 @@ function CollectionBody() {
   }
 
   return (
-    <>
-      <Section>
-        <FormProvider {...method}>
-          <form onSubmit={method.handleSubmit(onDeletes)}>
-            <CollectionControl total={collectLength} checkCount={checkCount} onReset={onReset} />
-            <CollectionList isLoading={isLoading} collections={collectData} onDelete={onDelete} />
-          </form>
-        </FormProvider>
-      </Section>
-
-      {isFetcing && <Loadings />}
-    </>
+    <Section>
+      <FormProvider {...method}>
+        <form onSubmit={method.handleSubmit(onDeletes)}>
+          <CollectionControl total={collectLength} checkCount={checkCount} onReset={onReset} />
+          <CollectionList isLoading={isLoading} collections={collectData} onDelete={onDelete} />
+        </form>
+      </FormProvider>
+    </Section>
   )
 }
 

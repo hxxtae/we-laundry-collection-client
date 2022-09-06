@@ -1,18 +1,24 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Collections from '../pages/collections/page/Collection';
-//import Users from '../pages/users/application';
-import Notfound from '../components/Notfound';
+import { Collection } from '../pages/collections/page';
+import { Loadings, NotFound } from '../components';
+import { User } from '../pages/users/page';
+import { useIsMutating } from 'react-query';
 
 function MainRouter() {
+
+  const isMutating = useIsMutating();
+
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'}>
-          <Collections />
+          <Collection />
+          <User />
+          {isMutating > 0 && <Loadings />}
         </Route>
         <Route path='*'>
-          <Notfound />
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

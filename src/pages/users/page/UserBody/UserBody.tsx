@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-import { Loadings } from '../../../../components';
 import { useUserFetch } from '../../application/custom_hooks';
 import UserControl from './UserControl';
 import UserList from './UserList';
