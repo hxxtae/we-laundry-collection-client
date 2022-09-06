@@ -19,11 +19,8 @@ export const useUserFetch = (): IUserFetch => {
     cacheTime: Infinity,
     retry: false,
     refetchOnWindowFocus: true,
-    onSuccess: () => {
-      console.log('user fetch success');
-    },
     onError: (err: any) => {
-      console.log(`user fetch fail : ${err.message}`);
+      console.log(`${err.message}`);
     },
   });
 
