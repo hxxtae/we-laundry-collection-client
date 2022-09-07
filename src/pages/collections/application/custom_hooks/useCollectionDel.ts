@@ -6,7 +6,7 @@ import { thisApi } from '../context/atom';
 import { toastStyle, queryKey } from '../../../../utils';
 
 interface ICollectionDel {
-  delLoading: boolean;
+  delMutating: boolean;
   delData: UseMutateFunction<AxiosResponse<any, any>, unknown, string, unknown>;
 }
 
@@ -25,5 +25,5 @@ export const useCollectionDel = (): ICollectionDel => {
     }
   });
 
-  return { delLoading: isLoading , delData: mutate };
+  return { delMutating: isLoading , delData: mutate };
 }

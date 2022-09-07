@@ -9,10 +9,9 @@ import CollectionControl from './CollectionControl';
 
 function CollectionBody() {
   const { isCollectLoading, isCollectFetching, collectData, collectLength } = useCollectionFetch();
-  const { delLoading, delData } = useCollectionDel();
-  const { delsLoading, delDatas } = useCollectionsDel();
+  const { delMutating, delData } = useCollectionDel();
+  const { delsMutating, delDatas } = useCollectionsDel();
   const isLoading = isCollectLoading || isCollectFetching;
-  const isMutating = delLoading || delsLoading;
   const method = useForm<dto.CollectionNamesDTO>();
   const checkCount = method.watch().names ? method.watch().names.length : 0;
 
@@ -24,7 +23,7 @@ function CollectionBody() {
     }
     const check = window.confirm(`Delete the [ ${data} ] collection?`);
     if (check) {
-      delLoading || delData(data, {
+      delMutating || delData(data, {
         onSuccess: () => method.reset(),
       });
     }
@@ -37,7 +36,7 @@ function CollectionBody() {
     }
     const check = window.confirm(`Delete the [ ${datas.length} ] collections?`);
     if (check) {
-      delsLoading || delDatas(datas, {
+      delsMutating || delDatas(datas, {
         onSuccess: () => method.reset(),
       });
     }

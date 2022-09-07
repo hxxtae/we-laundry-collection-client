@@ -8,7 +8,7 @@ import { managerAuth, thisApi } from '../context/login';
 import { ILogin, ILoginForm } from '../dto/dto';
 
 interface ILoginHook {
-  isLoading: boolean;
+  isMutating: boolean;
   login: UseMutateFunction<AxiosResponse<any, any>, any, ILoginForm, unknown>;
 }
 
@@ -27,5 +27,5 @@ export const useLogin = (): ILoginHook => {
     }
   });
 
-  return { isLoading, login: mutate };
+  return { isMutating: isLoading, login: mutate };
 }
