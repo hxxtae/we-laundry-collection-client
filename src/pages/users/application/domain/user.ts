@@ -4,6 +4,7 @@ import Https from '../../../../service/https';
 
 interface IUser {
   selectDatas: () => Promise<AxiosResponse>;
+  deleteData: (username: string) => Promise<AxiosResponse>;
 }
 
 class User implements IUser {
@@ -19,6 +20,13 @@ class User implements IUser {
     });
     return data;
   }
+
+  async deleteData(username: string): Promise<AxiosResponse> {
+    const data = await this.https.fetch(`/users/${username}`, {
+      method: 'DELETE',
+    });
+    return data;
+  };
 }
 
 export default User;
