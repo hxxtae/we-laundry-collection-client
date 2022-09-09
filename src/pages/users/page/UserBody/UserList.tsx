@@ -6,9 +6,10 @@ import { dto } from '../../application/dto';
 interface IUserList {
   isLoading: boolean;
   users: dto.IUser[] | [] | undefined;
+  onDelete: (username: string) => void;
 }
 
-function UserList({ isLoading, users }: IUserList) {
+function UserList({ isLoading, users, onDelete }: IUserList) {
   return (
     <Contain>
       {
@@ -19,6 +20,7 @@ function UserList({ isLoading, users }: IUserList) {
               <Wrapper>
                 <Name>{user.username}</Name>
               </Wrapper>
+              <Delete type="button" onClick={() => onDelete(user.username)}>Delete</Delete>
             </li>
           ))
       }
@@ -88,5 +90,26 @@ const Name = styled.span`
   font-size: 20px;
   font-weight: 600;
   padding: 10px 0;
+`;
+
+const Delete = styled.button`
+  font-size: 16px;
+  color: ${colors.light};
+  background-color: ${colors.red};
+  border-radius: 5px;
+  padding: 5px;
+  margin-left: auto;
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+
+  &:active {
+    opacity: .4;
+  }
+
+  @media ${media.tablet_s} {
+    &:hover {
+    opacity: .4;
+  }
+}
 `;
 
