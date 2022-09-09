@@ -13,10 +13,10 @@ function UserBody() {
     const check = window.confirm(`Delete the [ ${username} ] collection?`);
     if (!check) return;
     
-    mutate(username, {
+    isMutating || mutate(username, {
       onSuccess: () => {
         console.log('client: success!!!!');
-      }
+      },
     });
   }
 

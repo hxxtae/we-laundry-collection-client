@@ -22,11 +22,11 @@ function CollectionBody() {
       return;
     }
     const check = window.confirm(`Delete the [ ${data} ] collection?`);
-    if (check) {
-      delMutating || delData(data, {
-        onSuccess: () => method.reset(),
-      });
-    }
+    if (!check) return;
+
+    delMutating || delData(data, {
+      onSuccess: () => method.reset(),
+    });
   }
 
   const onDeletes = ({ names }: dto.CollectionNamesDTO) => {
@@ -35,11 +35,11 @@ function CollectionBody() {
       return;
     }
     const check = window.confirm(`Delete the [ ${datas.length} ] collections?`);
-    if (check) {
-      delsMutating || delDatas(datas, {
-        onSuccess: () => method.reset(),
-      });
-    }
+    if (!check) return;
+
+    delsMutating || delDatas(datas, {
+      onSuccess: () => method.reset(),
+    });
   }
 
   const onReset = () => {
