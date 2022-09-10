@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 import { useUserDel, useUserFetch } from '../../application/custom_hooks';
+import { UserList } from './UserList';
 import UserControl from './UserControl';
-import UserList from './UserList';
 
 function UserBody() {
+  console.log('UserBody');
   const { isUserLoading, isUserFetching, userDatas, userLength } = useUserFetch();
   const { isMutating, mutate } = useUserDel();
   const isLoading = isUserLoading || isUserFetching;
@@ -22,7 +23,7 @@ function UserBody() {
 
   return (
     <Section>
-      <UserControl />
+      <UserControl total={userLength} />
       <UserList isLoading={isLoading} users={userDatas} onDelete={onDelete} />
     </Section>
   )

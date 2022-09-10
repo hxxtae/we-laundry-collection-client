@@ -2,12 +2,16 @@ import styled from 'styled-components';
 
 import { colors, media } from '../../../../utils';
 
-function UserControl() {
+interface IUserControl {
+  total: number;
+}
+
+function UserControl({ total }: IUserControl) {
   return (
     <Contain>
       <Title>
         Users
-        <Count>{ `Total: 10` }</Count>
+        <Count>{`Total: ${total}`}</Count>
       </Title>
       <Control>
         <Reset type="button">Reset</Reset>
