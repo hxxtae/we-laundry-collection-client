@@ -1,11 +1,12 @@
 import { useIsMutating, useQueryClient } from 'react-query';
+import { queryKey } from '../../utils';
 
 interface IUserQueriesMutating {
   isLoading: boolean;
 }
 
-export const useQueriesMutating = (): IUserQueriesMutating => {
-  const isMutating = useIsMutating();
+export const useQueriesMutating = (queryKey?: any[]): IUserQueriesMutating => {
+  const isMutating = useIsMutating({ mutationKey: queryKey });
   const isLoading = isMutating > 0 ? true : false;
 
   return { isLoading };

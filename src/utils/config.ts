@@ -9,6 +9,9 @@ export const queryKey = {
   user: {
     all: ['/users'] as const,
     listName: (name: string) => [...queryKey.user.all, `${name}`] as const,
+  },
+  login: {
+    all: ['/login'] as const,
   }
 };
 

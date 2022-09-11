@@ -15,6 +15,7 @@ export const useCollectionsDel = (): ICollectionsDel => {
   const client = useQueryClient();
 
   const { isLoading, mutate } = useMutation((names: string[]) => api.deleteDatas(names), {
+    mutationKey: queryKey.collect.all,
     onSuccess: () => {
       client.invalidateQueries(queryKey.collect.all);
       toastStyle.success('Collections Delete Success!');
