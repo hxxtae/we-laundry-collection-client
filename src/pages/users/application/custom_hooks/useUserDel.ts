@@ -2,7 +2,7 @@ import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
 import { AxiosResponse } from 'axios';
 import { useRecoilValue } from 'recoil';
 
-import { queryKey, toastStyle } from '../../../../utils';
+import { mutateKey, queryKey, toastStyle } from '../../../../utils';
 import { thisApi } from '../context/atom';
 
 interface IUserDel {
@@ -14,7 +14,7 @@ export const useUserDel = (): IUserDel => {
   const query = useQueryClient();
   const api = useRecoilValue(thisApi);
   const { isLoading, mutate } = useMutation((username: string) => api.deleteData(username), {
-    mutationKey: queryKey.user.all,
+    mutationKey: mutateKey.user.all,
     onSuccess: () => {
       query.invalidateQueries(queryKey.user.all);
       toastStyle.success('User Delete Success!');

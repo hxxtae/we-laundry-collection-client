@@ -3,7 +3,7 @@ import { useRecoilValue } from 'recoil';
 import { AxiosResponse } from 'axios';
 
 import { thisApi } from '../context/atom';
-import { queryKey, toastStyle } from '../../../../utils';
+import { toastStyle, queryKey, mutateKey } from '../../../../utils';
 
 interface ICollectionsDel {
   delsMutating: boolean;
@@ -15,7 +15,7 @@ export const useCollectionsDel = (): ICollectionsDel => {
   const client = useQueryClient();
 
   const { isLoading, mutate } = useMutation((names: string[]) => api.deleteDatas(names), {
-    mutationKey: queryKey.collect.all,
+    mutationKey: mutateKey.collect.all,
     onSuccess: () => {
       client.invalidateQueries(queryKey.collect.all);
       toastStyle.success('Collections Delete Success!');
