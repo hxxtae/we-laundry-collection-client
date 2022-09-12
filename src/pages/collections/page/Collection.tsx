@@ -1,16 +1,20 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../utils';
+import { useQueriesMutating } from '../../../hooks/querys';
+import { Containers, Loadings } from '../../../components';
+import { colors, media, mutateKey } from '../../../utils';
 import { useLogout } from '../../login/application/custom_hooks';
-import { Containers } from '../../../components';
 import { CollectionBody } from './CollectionBody';
 import CollectionHeader from './CollectionHeader';
 
 function Collection() {
+  const { isLoading: isMutating } = useQueriesMutating(mutateKey.collect.all);
   const { isLoading, logout } = useLogout();
+
   const onLogout = () => {
     return isLoading || logout();
   }
+
 
   return (
     <Containers >
@@ -24,6 +28,8 @@ function Collection() {
         </Wrapper>
         <CollectionHeader />
         <CollectionBody />
+        
+        {isMutating && <Loadings />}
       </>
     </Containers>
   )

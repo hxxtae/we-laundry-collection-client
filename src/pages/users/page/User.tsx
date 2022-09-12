@@ -1,11 +1,19 @@
-import Containers from '../../../components/Containers';
+import { useQueriesMutating } from '../../../hooks/querys';
+import { Containers, Loadings } from '../../../components';
+import { queryKey } from '../../../utils';
 import { UserBody } from './UserBody';
 
 function User() {
+  const { isLoading: isMutating } = useQueriesMutating(queryKey.user.all);
+
   return (
-    <Containers>
-      <UserBody />
-    </Containers>
+    <>
+      <Containers>
+        <UserBody />
+      </Containers>
+      
+      {isMutating && <Loadings />}
+    </>
   )
 }
 
