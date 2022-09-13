@@ -1,5 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import styled from 'styled-components';
+import { useCallback } from 'react';
 
 import { thisIdExcept } from '../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
@@ -8,6 +9,7 @@ import { CollectionList } from './CollectionList';
 import CollectionControl from './CollectionControl';
 
 function CollectionBody() {
+  console.log('collectionBody');
   const { isCollectLoading, isCollectFetching, collectData, collectLength } = useCollectionFetch();
   const { delMutating, delData } = useCollectionDel();
   const { delsMutating, delDatas } = useCollectionsDel();
@@ -15,7 +17,7 @@ function CollectionBody() {
   const method = useForm<dto.CollectionNamesDTO>();
   const checkCount = method.watch().names ? method.watch().names.length : 0;
 
-  const onDelete = (name: string) => {
+  const onDelete = useCallback((name: string) => {
     const data = name;
     if (thisIdExcept(data)) {
       alert('It cannot be done.');
@@ -27,7 +29,7 @@ function CollectionBody() {
     delMutating || delData(data, {
       onSuccess: () => method.reset(),
     });
-  }
+  }, [collectData]);
 
   const onDeletes = ({ names }: dto.CollectionNamesDTO) => {
     const datas = names;
@@ -42,9 +44,9 @@ function CollectionBody() {
     });
   }
 
-  const onReset = () => {
+  const onReset = useCallback(() => {
     method.reset();
-  }
+  }, []);
 
   return (
     <Section>

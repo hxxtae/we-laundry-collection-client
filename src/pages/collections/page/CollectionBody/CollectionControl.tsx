@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { memo } from 'react';
 
 import { colors, media } from '../../../../utils';
 
@@ -9,6 +10,7 @@ interface ICollectionControl {
 }
 
 function CollectionControl({ total, checkCount, onReset }: ICollectionControl) {
+  console.log("CollectionControl");
 
   return (
     <Contain>
@@ -27,7 +29,7 @@ function CollectionControl({ total, checkCount, onReset }: ICollectionControl) {
   )
 }
 
-export default CollectionControl;
+export default memo(CollectionControl);
 
 const Contain = styled.div`
   display: flex;

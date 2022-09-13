@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { memo } from 'react';
 
 import { colors, thisIdExcept, media, noDrag, scroll } from '../../../../../utils';
 import { dto } from '../../../application/dto';
@@ -11,6 +12,7 @@ interface ICollectionList {
 }
 
 function CollectionList({ isLoading, collections, onDelete }: ICollectionList) {
+  console.log("CollectionList");
   
   return (
     <Contain>
@@ -35,7 +37,7 @@ function CollectionList({ isLoading, collections, onDelete }: ICollectionList) {
   )
 }
 
-export default CollectionList;
+export default memo(CollectionList);
 
 const Contain = styled.ul`
   display: flex;
