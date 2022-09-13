@@ -14,6 +14,7 @@ function UserItem({ user, onDelete }: IUserItem) {
     <Item>
       <Wrapper>
         <Name>{user.username}</Name>
+        <Type>{`username`}</Type>
       </Wrapper>
       <Delete type="button" onClick={() => onDelete(user.username)}>Delete</Delete>
     </Item>
@@ -52,6 +53,11 @@ const Name = styled.span`
   font-size: 20px;
   font-weight: 600;
   padding: 10px 0;
+`;
+
+const Type = styled.span`
+  font-size: 16px;
+  color: ${colors.secondary};
 `;
 
 const Delete = styled.button`
