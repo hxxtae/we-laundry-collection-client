@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { memo } from 'react';
 
-import { colors, noDrag, scroll } from '../../../../../utils';
+import { colors, noDrag, scroll, thisIdExcept } from '../../../../../utils';
 import { dto } from '../../../application/dto';
 import CollectionItem from './CollectionItem';
 
@@ -20,7 +20,7 @@ function CollectionList({ isLoading, collections, onDelete }: ICollectionList) {
         isLoading ?
           <Loading>Loading...</Loading> :
           collections?.map((item) => (
-            <CollectionItem key={item.name} collection={item} onDelete={onDelete} />
+            thisIdExcept(item.name) || <CollectionItem key={item.name} collection={item} onDelete={onDelete} />
           ))
       }
     </Contain>

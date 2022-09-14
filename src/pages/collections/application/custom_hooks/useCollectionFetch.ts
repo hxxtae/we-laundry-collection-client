@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import { useRecoilValue } from 'recoil'
 
-import { queryKey, toastStyle } from '../../../../utils';
+import { queryKey, thisIdExcept, toastStyle } from '../../../../utils';
 import { thisApi } from '../context/atom'
 import { dto } from '../../application/dto';
 
@@ -20,17 +20,21 @@ export const useCollectionFetch = (): ICollectionFetch => {
     cacheTime: Infinity,
     retry: false,
     refetchOnWindowFocus: true,
+    select: (data) => {
+      const result: dto.CollectionDTO[] | [] = data.data;
+      return result.filter((obj) => !thisIdExcept(obj.name));
+    },
     onError: (err: any) => {
       toastStyle.error(err.message);
-    }
+    },
   });
   
-  const thisLength: number = data?.data ? data.data.length : 0;
+  const thisLength: number = data ? data.length : 0;
 
   return {
     isCollectLoading: isLoading,
     isCollectFetching: isFetching,
-    collectData: data?.data,
+    collectData: data,
     collectLength: thisLength,
   }
 }

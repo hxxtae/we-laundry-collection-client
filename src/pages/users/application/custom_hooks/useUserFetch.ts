@@ -8,7 +8,7 @@ import { dto } from '../dto';
 interface IUserFetch {
   isUserLoading: boolean;
   isUserFetching: boolean;
-  userDatas: dto.IUser[] | [] | undefined;
+  userDatas?: dto.IUser[] | [];
   userLength: number;
 }
 

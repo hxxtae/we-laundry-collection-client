@@ -19,7 +19,8 @@ function CollectionBody() {
 
   const onDelete = useCallback((name: string) => {
     const data = name;
-    if (thisIdExcept(data)) {
+    const exceptName = thisIdExcept(data);
+    if (exceptName) {
       alert('It cannot be done.');
       return;
     }
@@ -34,6 +35,11 @@ function CollectionBody() {
   const onDeletes = ({ names }: dto.CollectionNamesDTO) => {
     const datas = names;
     if (!datas || !datas.length) {
+      return;
+    }
+    const exceptName = datas.find((name) => thisIdExcept(name));
+    if (exceptName) {
+      alert('It cannot be done.');
       return;
     }
     const check = window.confirm(`Delete the [ ${datas.length} ] collections?`);

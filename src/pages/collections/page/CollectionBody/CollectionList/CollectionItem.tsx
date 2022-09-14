@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, media, thisIdExcept } from '../../../../../utils';
+import { colors, media } from '../../../../../utils';
 import { dto } from '../../../application/dto';
 import InputCheck from './InputCheck';
 
@@ -14,12 +14,12 @@ function CollectionItem({ collection, onDelete }: ICollectionItem) {
 
   return (
     <Item key={collection.name}>
-      {thisIdExcept(collection.name) ? <NotCheck /> : <InputCheck thisName={collection.name} />}
+      <InputCheck thisName={collection.name} />
       <Wrapper>
         <Name>{collection.name}</Name>
         <Type>{collection.type}</Type>
       </Wrapper>
-      {thisIdExcept(collection.name) || <Delete type="button" onClick={() => onDelete(collection.name)}>Delete</Delete>}
+      <Delete type="button" onClick={() => onDelete(collection.name)}>Delete</Delete>
     </Item>
   )
 }
@@ -85,13 +85,4 @@ const Delete = styled.button`
     opacity: .4;
   }
 }
-`;
-
-const NotCheck = styled.div`
-  width: 20px;
-  height: 20px;
-  background-color: ${colors.red};
-  border-radius: 50%;
-  margin: 10px;
-  align-self: flex-start;
 `;
