@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, media, noDrag } from '../../../../../utils';
+import { colors, media } from '../../../../../utils';
 import { dto } from '../../../application/dto';
 
 interface IUserItem {
@@ -39,7 +39,6 @@ const Item = styled.li`
     padding-bottom: 0;
   }
 
-  ${noDrag()}
 `;
 
 const Wrapper = styled.div`

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, media, scroll } from '../../../../../utils';
+import { colors, media, noDrag, scroll } from '../../../../../utils';
 import { dto } from '../../../application/dto';
 import UserItem from './UserItem';
 
@@ -41,6 +41,8 @@ const Contain = styled.ul`
   ${scroll.bar(10)}
   ${scroll.track()}
   ${scroll.thumb(colors.secondary)}
+
+  ${noDrag()}
 
   @media ${media.tablet_s} {
     padding-left: 30px;
