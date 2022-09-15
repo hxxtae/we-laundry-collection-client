@@ -13,20 +13,20 @@ function Header() {
 
   return (
     <Containers>
-      <Wrapper>
+      <HeaderBody>
         <H1>Hxxtae</H1>
         <H2>
           Collection status
           <Logout type="button" onClick={onLogout}>Log out</Logout>
         </H2>
-      </Wrapper>
+      </HeaderBody>
     </Containers>
   )
 }
 
 export default Header;
 
-const Wrapper = styled.div`
+const HeaderBody = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;

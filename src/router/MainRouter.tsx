@@ -4,6 +4,7 @@ import { NotFound } from '../components';
 import { Header } from '../pages/header/page';
 import { Collection } from '../pages/collections/page';
 import { User } from '../pages/users/page';
+import { Footer } from '../pages/footer/page';
 
 function MainRouter() {
 
@@ -14,6 +15,7 @@ function MainRouter() {
           <Header />
           <Collection />
           <User />
+          <Footer />
         </Route>
         <Route path='*'>
           <NotFound />
