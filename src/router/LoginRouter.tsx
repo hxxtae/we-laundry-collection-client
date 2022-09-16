@@ -1,17 +1,17 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Notfound from '../components/Notfound';
-import Index from '../pages/login/application';
+import { NotFound } from '../components';
+import { Login } from '../pages/login/page';
 
 function LoginRouter() {
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'}>
-          <Index />
+          <Login />
         </Route>
-        <Route exact path={process.env.PUBLIC_URL + '*'}>
-          <Notfound />
+        <Route path='*'>
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

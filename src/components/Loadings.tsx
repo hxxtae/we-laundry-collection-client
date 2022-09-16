@@ -24,6 +24,7 @@ const LoadingOverlay = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, .12);
+  z-index: 100;
 `;
 
 const LoadingBox = styled.section`

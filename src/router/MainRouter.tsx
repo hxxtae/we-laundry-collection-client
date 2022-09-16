@@ -1,17 +1,24 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import Index from '../pages/collections/application';
-import Notfound from '../components/Notfound';
+import { NotFound } from '../components';
+import { Header } from '../pages/header/page';
+import { Collection } from '../pages/collections/page';
+import { User } from '../pages/users/page';
+import { Footer } from '../pages/footer/page';
 
 function MainRouter() {
+
   return (
     <BrowserRouter>
       <Switch>
         <Route exact path={process.env.PUBLIC_URL + '/'}>
-          <Index />
+          <Header />
+          <Collection />
+          <User />
+          <Footer />
         </Route>
-        <Route exact path={process.env.PUBLIC_URL + '*'}>
-          <Notfound />
+        <Route path='*'>
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

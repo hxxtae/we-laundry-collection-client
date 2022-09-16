@@ -6,7 +6,22 @@ export const queryKey = {
   auth: {
     me: ['/auth/me'] as const,
   },
+  user: {
+    all: ['/users'] as const,
+    listName: (name: string) => [...queryKey.user.all, `${name}`] as const,
+  },
 };
+
+export const mutateKey = {
+  collect: {
+    all: ['/collections'] as const,
+  },
+  user: {
+    all: ['/users'] as const,
+  },
+  login: ['/login'] as const,
+  logout: ['/logout'] as const,
+}
 
 export const colors = {
   bgColor: '#121925',
