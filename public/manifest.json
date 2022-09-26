@@ -1,7 +1,12 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Welaundry Collection",
+  "name": "Welaundry Collection app logo",
   "icons": [
+    {
+      "src": "/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
