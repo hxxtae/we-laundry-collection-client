@@ -1,12 +1,7 @@
 {
   "short_name": "Welaundry Collection",
-  "name": "Welaundry Collection app logo",
+  "name": "we-laundry-collection-client",
   "icons": [
-    {
-      "src": "/android-chrome-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    }
   ],
   "start_url": ".",
   "display": "standalone",
