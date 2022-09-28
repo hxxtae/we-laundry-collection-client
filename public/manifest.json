@@ -2,6 +2,11 @@
   "short_name": "Welaundry Collection",
   "name": "we-laundry-collection-client",
   "icons": [
+    {
+      "src": "/assets/favicon/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
