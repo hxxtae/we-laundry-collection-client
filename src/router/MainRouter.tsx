@@ -17,7 +17,7 @@ function MainRouter() {
           <User />
           <Footer />
         </Route>
-        <Route path='*'>
+        <Route exact path='*'>
           <NotFound />
         </Route>
       </Switch>
