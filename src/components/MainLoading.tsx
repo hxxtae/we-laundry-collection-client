@@ -4,7 +4,7 @@ import { colors } from '../utils/config';
 function MainLoading() {
   return (
     <LoadingContainer>
-      <LoadingIcon>Loading</LoadingIcon>
+      <LoadingIcon>Loading...</LoadingIcon>
     </LoadingContainer>
   )
 }
