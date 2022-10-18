@@ -4,7 +4,7 @@ import { colors } from '../utils/config';
 function MainLoading() {
   return (
     <LoadingContainer>
-      <LoadingIcon>Loading...</LoadingIcon>
+      <LoadingIcon>Loading</LoadingIcon>
     </LoadingContainer>
   )
 }
@@ -21,6 +21,30 @@ const LoadingContainer = styled.div`
 `;
 
 const LoadingIcon = styled.span`
+  position: relative;
   color: white;
   font-size: 20px;
+
+  &:after {
+    content: '. . .';
+    position: absolute;
+    display: inline-block;
+    margin-left: 3px;
+    width: 50px;
+    height: 20px;
+    overflow: hidden;
+    animation-duration: 1s;
+    animation-name: loadingAnimate;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes loadingAnimate {
+    from {
+      width: 5px;
+    }
+
+    to {
+      width: 30px;
+    }
+  }
 `;
