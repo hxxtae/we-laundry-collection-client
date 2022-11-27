@@ -5,13 +5,12 @@ import { UserList } from './UserList';
 import UserControl from './UserControl';
 
 function UserBody() {
-  console.log('UserBody');
   const { isUserLoading, isUserFetching, userDatas, userLength } = useUserFetch();
   const { isMutating, mutate } = useUserDel();
   const isLoading = isUserLoading || isUserFetching;
 
   const onDelete = (username: string) => {
-    const check = window.confirm(`Delete the [ ${username} ] collection?`);
+    const check = window.confirm(`Delete the [ ${username} ] customer account?`);
     if (!check) return;
     
     isMutating || mutate(username, {
