@@ -9,7 +9,6 @@ import { CollectionList } from './CollectionList';
 import CollectionControl from './CollectionControl';
 
 function CollectionBody() {
-  console.log('collectionBody');
   const { isCollectLoading, isCollectFetching, collectData, collectLength } = useCollectionFetch();
   const { delMutating, delData } = useCollectionDel();
   const { delsMutating, delDatas } = useCollectionsDel();
