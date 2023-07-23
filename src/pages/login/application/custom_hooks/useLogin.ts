@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
@@ -8,7 +7,7 @@ import { dto } from '../dto';
 
 interface ILoginHook {
   isMutating: boolean;
-  login: UseMutateFunction<AxiosResponse<any, any>, any, dto.ILoginForm, unknown>;
+  login: UseMutateFunction<dto.ILogin, any, dto.ILoginForm, unknown>;
 }
 
 export const useLogin = (): ILoginHook => {
@@ -16,14 +15,17 @@ export const useLogin = (): ILoginHook => {
   const api = useRecoilValue(thisApi);
   const { isLoading, mutate } = useMutation(({ admin_id, admin_pw }: dto.ILoginForm) => api.login({ admin_id, admin_pw }), {
     mutationKey: mutateKey.login,
-    onSuccess: (data) => {
-      const managerData: dto.ILogin = data?.data;
-      toastStyle.success(`Welcome Back ${data?.data.admin_id} Manager !!`);
-      setStorageToken(managerData.token);
-      setManager(managerData.token);
+    onSuccess: (data: dto.ILogin) => {
+      if (!data) {
+        toastStyle.error('Invalid id and paaword.');
+        return;
+      }
+      toastStyle.success(`Welcome Back ${data?.admin_id} Manager !!`);
+      setStorageToken(data.token);
+      setManager(data.token);
     },
     onError: (err: any) => {
-      toastStyle.error(`${err.message}`);
+      
     }
   });
 

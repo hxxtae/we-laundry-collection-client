@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosResponse } from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 import { getStorageToken } from '../utils/storage';
 
@@ -9,7 +9,7 @@ interface Options {
 }
 
 export interface IHttps {
-  fetch: (url: string, options: Options) => Promise<AxiosResponse>;
+  fetch: (url: string, options: Options) => Promise<any>;
 }
 
 class Https implements IHttps {
@@ -27,7 +27,7 @@ class Https implements IHttps {
     });
   }
 
-  async fetch(url: string, options: Options): Promise<AxiosResponse> {
+  async fetch(url: string, options: Options): Promise<any> {
     const { method, headers, body } = options;
     const req = {
       url,
@@ -41,15 +41,18 @@ class Https implements IHttps {
 
     try {
       const res = await this.client(req);
-      return res;
+      return res.data;
     } catch (err: any) {
       if (err.response) {
         const data = err.response.data;
-        const message = data && data.message ? data.message : 'Server went wrong';
-        console.log(`https message: ${message}`);
-        throw new Error(message);
+        const message = data?.message;
+        if (message) {
+          console.log(`(4xx) https message: ${message}`);
+          return undefined;
+        }
+        throw new Error('(5xx) Server went wrong');
       }
-      throw new Error('connection error');
+      throw new Error('(5xx) connection error');
     }
   }
 }

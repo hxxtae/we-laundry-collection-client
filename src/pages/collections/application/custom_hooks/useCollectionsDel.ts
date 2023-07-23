@@ -1,13 +1,12 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query';
 import { useRecoilValue } from 'recoil';
-import { AxiosResponse } from 'axios';
 
 import { thisApi } from '../context/atom';
 import { toastStyle, queryKey, mutateKey } from '../../../../utils';
 
 interface ICollectionsDel {
   delsMutating: boolean;
-  delDatas: UseMutateFunction<AxiosResponse<any, any>, unknown, string[], unknown>;
+  delDatas: UseMutateFunction<any, unknown, string[], unknown>;
 }
 
 export const useCollectionsDel = (): ICollectionsDel => {

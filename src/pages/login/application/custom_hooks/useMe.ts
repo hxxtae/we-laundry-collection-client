@@ -4,7 +4,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 import { queryKey } from '../../../../utils/config';
 import { toastStyle } from '../../../../utils/toastConfig';
 import { managerAuth, thisApi } from '../context/login'
-import { IMe } from '../dto/dto';
+import { dto } from '../dto';
 
 interface IMeHook {
   isLoading: boolean;
@@ -19,12 +19,12 @@ export const useMe = (): IMeHook => {
     retry: false,
     refetchOnWindowFocus: false,
     refetchOnMount: 'always',
-    onSuccess: (data) => {
-      const managerData: IMe = data?.data;
-      setManager(managerData.token);
+    suspense: true,
+    onSuccess: (data: dto.IMe) => {
+      setManager(data?.token);
     },
     onError: (err: any) => {
-      toastStyle.info('Please Login');
+      toastStyle.info('Login Error');
     }
   });
 

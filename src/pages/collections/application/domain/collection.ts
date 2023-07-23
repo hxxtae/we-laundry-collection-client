@@ -1,10 +1,10 @@
-import { AxiosResponse } from 'axios';
 import Https from '../../../../service/https';
+import { dto } from '../dto';
 
 interface ICollectionApi {
-  selectDatas: () => Promise<AxiosResponse>;
-  deleteData: (name: string) => Promise<AxiosResponse>;
-  deleteDatas: (names: string[]) => Promise<AxiosResponse>;
+  selectDatas: () => Promise<dto.CollectionDTO[]>;
+  deleteData: (name: string) => Promise<any>;
+  deleteDatas: (names: string[]) => Promise<any>;
 }
 
 class CollectionApi implements ICollectionApi {
@@ -14,21 +14,21 @@ class CollectionApi implements ICollectionApi {
     this.https = https;
   }
 
-  async selectDatas(): Promise<AxiosResponse> {
+  async selectDatas(): Promise<dto.CollectionDTO[]> {
     const data = await this.https.fetch('/collections', {
       method: 'GET',
     });
     return data;
   };
 
-  async deleteData(name: string): Promise<AxiosResponse> {
+  async deleteData(name: string): Promise<any> {
     const data = await this.https.fetch(`/collections/${name}`, {
       method: 'DELETE',
     });
     return data;
   }
 
-  async deleteDatas(names: string[]): Promise<AxiosResponse> {
+  async deleteDatas(names: string[]): Promise<any> {
     const data = await this.https.fetch('/collections', {
       method: 'DELETE',
       body: JSON.stringify({

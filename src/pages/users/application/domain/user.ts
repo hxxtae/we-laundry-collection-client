@@ -1,10 +1,9 @@
-import { AxiosResponse } from 'axios';
-
 import Https from '../../../../service/https';
+import { dto } from '../dto';
 
 interface IUser {
-  selectDatas: () => Promise<AxiosResponse>;
-  deleteData: (username: string) => Promise<AxiosResponse>;
+  selectDatas: () => Promise<dto.IUser[]>;
+  deleteData: (username: string) => Promise<boolean>;
 }
 
 class User implements IUser {
@@ -14,14 +13,14 @@ class User implements IUser {
     this.https = https;
   }
 
-  async selectDatas(): Promise<AxiosResponse> {
+  async selectDatas(): Promise<dto.IUser[]> {
     const data = await this.https.fetch('/users', {
       method: 'GET',
     });
     return data;
   }
 
-  async deleteData(username: string): Promise<AxiosResponse> {
+  async deleteData(username: string): Promise<boolean> {
     const data = await this.https.fetch(`/users/${username}`, {
       method: 'DELETE',
     });

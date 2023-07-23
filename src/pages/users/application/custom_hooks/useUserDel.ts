@@ -1,5 +1,4 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
-import { AxiosResponse } from 'axios';
 import { useRecoilValue } from 'recoil';
 
 import { mutateKey, queryKey, toastStyle } from '../../../../utils';
@@ -7,7 +6,7 @@ import { thisApi } from '../context/atom';
 
 interface IUserDel {
   isMutating: boolean;
-  mutate: UseMutateFunction<AxiosResponse<any, any>, unknown, string, unknown>;
+  mutate: UseMutateFunction<boolean, unknown, string, unknown>;
 }
 
 export const useUserDel = (): IUserDel => {
