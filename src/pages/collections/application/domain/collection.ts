@@ -1,4 +1,4 @@
-import Https from '../../../../service/https';
+import { api } from '../../../../service/api';
 import { dto } from '../dto';
 
 interface ICollectionApi {
@@ -8,28 +8,28 @@ interface ICollectionApi {
 }
 
 class CollectionApi implements ICollectionApi {
-  private https: Https;
+  private api;
 
-  constructor(https: Https) {
-    this.https = https;
+  constructor() {
+    this.api = api;
   }
 
   async selectDatas(): Promise<dto.CollectionDTO[]> {
-    const data = await this.https.fetch('/collections', {
+    const data = await this.api('/collections', {
       method: 'GET',
     });
     return data;
   };
 
   async deleteData(name: string): Promise<any> {
-    const data = await this.https.fetch(`/collections/${name}`, {
+    const data = await this.api(`/collections/${name}`, {
       method: 'DELETE',
     });
     return data;
   }
 
   async deleteDatas(names: string[]): Promise<any> {
-    const data = await this.https.fetch('/collections', {
+    const data = await this.api('/collections', {
       method: 'DELETE',
       body: JSON.stringify({
         names,

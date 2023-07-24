@@ -1,9 +1,10 @@
 import { UseMutateFunction, useMutation } from 'react-query';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { toastStyle, setStorageToken, mutateKey } from '../../../../utils';
-import { managerAuth, thisApi } from '../context/login';
+import { managerAuth } from '../context/login';
 import { dto } from '../dto';
+import LoginApi from '../domain/login';
 
 interface ILoginHook {
   isMutating: boolean;
@@ -12,7 +13,7 @@ interface ILoginHook {
 
 export const useLogin = (): ILoginHook => {
   const setManager = useSetRecoilState(managerAuth);
-  const api = useRecoilValue(thisApi);
+  const api = new LoginApi();
   const { isLoading, mutate } = useMutation(({ admin_id, admin_pw }: dto.ILoginForm) => api.login({ admin_id, admin_pw }), {
     mutationKey: mutateKey.login,
     onSuccess: (data: dto.ILogin) => {

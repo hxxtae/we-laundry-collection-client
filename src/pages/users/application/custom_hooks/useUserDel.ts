@@ -1,8 +1,7 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
-import { useRecoilValue } from 'recoil';
 
 import { mutateKey, queryKey, toastStyle } from '../../../../utils';
-import { thisApi } from '../context/atom';
+import User from '../domain/user';
 
 interface IUserDel {
   isMutating: boolean;
@@ -11,7 +10,7 @@ interface IUserDel {
 
 export const useUserDel = (): IUserDel => {
   const query = useQueryClient();
-  const api = useRecoilValue(thisApi);
+  const api = new User();
   const { isLoading, mutate } = useMutation((username: string) => api.deleteData(username), {
     mutationKey: mutateKey.user.all,
     onSuccess: () => {

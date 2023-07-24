@@ -1,8 +1,7 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
-import { useRecoilValue } from 'recoil';
 
-import { thisApi } from '../context/atom';
 import { toastStyle, queryKey, mutateKey } from '../../../../utils';
+import CollectionApi from '../domain/collection';
 
 interface ICollectionDel {
   delMutating: boolean;
@@ -10,9 +9,8 @@ interface ICollectionDel {
 }
 
 export const useCollectionDel = (): ICollectionDel => {
-  const api = useRecoilValue(thisApi);
   const client = useQueryClient();
-
+  const api = new CollectionApi();
   const { isLoading, mutate } = useMutation((name: string) => api.deleteData(name), {
     mutationKey: mutateKey.collect.all,
     onSuccess: () => {

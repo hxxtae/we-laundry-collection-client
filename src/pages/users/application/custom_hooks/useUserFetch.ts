@@ -1,9 +1,8 @@
 import { useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil'
 
 import { queryKey } from '../../../../utils/config';
-import { thisApi } from '../context/atom';
 import { dto } from '../dto';
+import User from '../domain/user';
 
 interface IUserFetch {
   isUserLoading: boolean;
@@ -13,7 +12,7 @@ interface IUserFetch {
 }
 
 export const useUserFetch = (): IUserFetch => {
-  const api = useRecoilValue(thisApi);
+  const api = new User();
   const { isLoading, isFetching, data } = useQuery(queryKey.user.all, () => api.selectDatas(), {
     staleTime: 1000 * 60 * 20, // 20분
     cacheTime: Infinity,

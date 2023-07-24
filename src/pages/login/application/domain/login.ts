@@ -1,4 +1,4 @@
-import Https from '../../../../service/https';
+import { api } from '../../../../service/api';
 import { dto } from '../dto';
 
 interface ILoginApi {
@@ -8,10 +8,10 @@ interface ILoginApi {
 }
 
 class LoginApi implements ILoginApi {
-  private https: Https;
+  private api;
 
-  constructor(https: Https) {
-    this.https = https;
+  constructor() {
+    this.api = api;
   };
 
   /**
@@ -22,7 +22,7 @@ class LoginApi implements ILoginApi {
    * @returns {Promise<dto.ILogin>}
    */
   async login({admin_id, admin_pw}: dto.ILoginForm): Promise<dto.ILogin> {
-    const data = await this.https.fetch('/auth/login', {
+    const data = await this.api('/auth/login', {
       method: 'POST',
       body: JSON.stringify({
         admin_id,
@@ -37,7 +37,7 @@ class LoginApi implements ILoginApi {
    * @returns {Promise<dto.ILogout>}
    */
   async logout(): Promise<dto.ILogout> {
-    const data = await this.https.fetch('/auth/logout', {
+    const data = await this.api('/auth/logout', {
       method: 'POST',
     });
     return data;
@@ -48,7 +48,7 @@ class LoginApi implements ILoginApi {
    * @returns {Promise<dto.IMe>}
    */
   async me(): Promise<dto.IMe> {
-    const data = await this.https.fetch('/auth/me', {
+    const data = await this.api('/auth/me', {
       method: 'GET',
     });
     return data;

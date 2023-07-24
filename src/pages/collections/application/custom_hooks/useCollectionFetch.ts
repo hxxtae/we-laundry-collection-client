@@ -1,9 +1,8 @@
 import { useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil'
 
 import { queryKey, thisIdExcept, toastStyle } from '../../../../utils';
-import { thisApi } from '../context/atom'
 import { dto } from '../../application/dto';
+import CollectionApi from '../domain/collection';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;
@@ -13,7 +12,7 @@ interface ICollectionFetch {
 }
 
 export const useCollectionFetch = (): ICollectionFetch => {
-  const api = useRecoilValue(thisApi);
+  const api = new CollectionApi();
   
   const { isLoading, isFetching, data } = useQuery(queryKey.collect.all, () => api.selectDatas(), {
     staleTime: 1000 * 60 * 20, // 20분

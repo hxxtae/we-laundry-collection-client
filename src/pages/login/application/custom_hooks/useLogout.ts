@@ -1,9 +1,10 @@
 import { UseMutateFunction, useMutation } from 'react-query';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { removeStorageToken, toastStyle, mutateKey } from '../../../../utils';
-import { managerAuth, thisApi } from '../context/login';
+import { managerAuth } from '../context/login';
 import { dto } from '../dto';
+import LoginApi from '../domain/login';
 
 interface ILogoutHook {
   isLoading: boolean;
@@ -11,7 +12,7 @@ interface ILogoutHook {
 }
 
 export const useLogout = (): ILogoutHook => {
-  const api = useRecoilValue(thisApi);
+  const api = new LoginApi();
   const setManager = useSetRecoilState(managerAuth);
   const { isLoading, mutate } = useMutation(() => api.logout(), {
     mutationKey: mutateKey.logout,

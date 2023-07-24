@@ -1,4 +1,4 @@
-import Https from '../../../../service/https';
+import { api } from '../../../../service/api';
 import { dto } from '../dto';
 
 interface IUser {
@@ -7,21 +7,21 @@ interface IUser {
 }
 
 class User implements IUser {
-  private https: Https;
+  private api;
 
-  constructor(https: Https) {
-    this.https = https;
+  constructor() {
+    this.api = api;
   }
 
   async selectDatas(): Promise<dto.IUser[]> {
-    const data = await this.https.fetch('/users', {
+    const data = await this.api('/users', {
       method: 'GET',
     });
     return data;
   }
 
   async deleteData(username: string): Promise<boolean> {
-    const data = await this.https.fetch(`/users/${username}`, {
+    const data = await this.api(`/users/${username}`, {
       method: 'DELETE',
     });
     return data;
