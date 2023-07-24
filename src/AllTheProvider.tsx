@@ -12,9 +12,16 @@ interface IAllTheProvider {
   children: React.ReactElement;
 }
 
-const client = new QueryClient();
+const client = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 0,
+    }
+  }
+});
 
 function AllTheProvider({ children }: IAllTheProvider) {
+  console.log('AllTheProvider')
   return (
     <QueryClientProvider client={client}>
       <ReactQueryDevtools initialIsOpen={false} />
