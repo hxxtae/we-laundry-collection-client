@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { queryKey } from '../../../../utils/config';
 import { dto } from '../dto';
-import User from '../domain/user';
+import { selectDatas } from '../domain/user';
 
 interface IUserFetch {
   isUserLoading: boolean;
@@ -12,8 +12,7 @@ interface IUserFetch {
 }
 
 export const useUserFetch = (): IUserFetch => {
-  const api = new User();
-  const { isLoading, isFetching, data } = useQuery(queryKey.user.all, () => api.selectDatas(), {
+  const { isLoading, isFetching, data } = useQuery(queryKey.user.all, () => selectDatas(), {
     staleTime: 1000 * 60 * 20, // 20분
     cacheTime: Infinity,
     retry: false,

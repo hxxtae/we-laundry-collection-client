@@ -1,7 +1,7 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
 
 import { mutateKey, queryKey, toastStyle } from '../../../../utils';
-import User from '../domain/user';
+import { deleteData } from '../domain/user';
 
 interface IUserDel {
   isMutating: boolean;
@@ -10,8 +10,8 @@ interface IUserDel {
 
 export const useUserDel = (): IUserDel => {
   const query = useQueryClient();
-  const api = new User();
-  const { isLoading, mutate } = useMutation((username: string) => api.deleteData(username), {
+  const queryFn = (username: string) => deleteData(username);
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.user.all,
     onSuccess: () => {
       query.invalidateQueries(queryKey.user.all);

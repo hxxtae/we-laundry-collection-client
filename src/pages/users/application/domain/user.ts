@@ -1,31 +1,26 @@
 import { api } from '../../../../service/api';
 import { dto } from '../dto';
 
-interface IUser {
-  selectDatas: () => Promise<dto.IUser[]>;
-  deleteData: (username: string) => Promise<boolean>;
+/**
+ * 📗 API Function : User 목록 조회
+ * @returns {Promise<dto.IUser[]>}
+ */
+export const selectDatas = async (): Promise<dto.IUser[]> => {
+  const data = await api('/users', {
+    method: 'GET',
+  });
+  return data;
 }
 
-class User implements IUser {
-  private api;
-
-  constructor() {
-    this.api = api;
-  }
-
-  async selectDatas(): Promise<dto.IUser[]> {
-    const data = await this.api('/users', {
-      method: 'GET',
-    });
-    return data;
-  }
-
-  async deleteData(username: string): Promise<boolean> {
-    const data = await this.api(`/users/${username}`, {
-      method: 'DELETE',
-    });
-    return data;
-  };
-}
-
-export default User;
+/**
+ * 📗 API Function : User 목록 삭제(단건)
+ * @param {string} username - User 이름
+ * @returns {Promise<boolean>}
+ */
+export const deleteData = async (username: string): Promise<boolean> => {
+  const data = await api(`/users/${username}`, {
+    method: 'DELETE',
+  });
+  return data;
+};
+  
