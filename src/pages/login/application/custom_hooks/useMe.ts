@@ -1,11 +1,10 @@
 import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil'
 
-import { queryKey } from '../../../../utils/config';
-import { toastStyle } from '../../../../utils/toastConfig';
+import { queryKey, toastStyle } from '../../../../utils';
 import { managerAuth } from '../context/login'
+import { me } from '../domain/login';
 import { dto } from '../dto';
-import LoginApi from '../domain/login';
 
 interface IMeHook {
   isLoading: boolean;
@@ -13,8 +12,7 @@ interface IMeHook {
 
 export const useMe = (): IMeHook => {
   const setManager = useSetRecoilState(managerAuth);
-  const api = new LoginApi();
-  const { isLoading } = useQuery(queryKey.auth.me, () => api.me(), {
+  const { isLoading } = useQuery(queryKey.auth.me, me, {
     staleTime: 0,
     cacheTime: 0,
     retry: false,

@@ -3,8 +3,8 @@ import { useSetRecoilState } from 'recoil';
 
 import { toastStyle, setStorageToken, mutateKey } from '../../../../utils';
 import { managerAuth } from '../context/login';
+import { login } from '../domain/login';
 import { dto } from '../dto';
-import LoginApi from '../domain/login';
 
 interface ILoginHook {
   isMutating: boolean;
@@ -13,8 +13,8 @@ interface ILoginHook {
 
 export const useLogin = (): ILoginHook => {
   const setManager = useSetRecoilState(managerAuth);
-  const api = new LoginApi();
-  const { isLoading, mutate } = useMutation(({ admin_id, admin_pw }: dto.ILoginForm) => api.login({ admin_id, admin_pw }), {
+  const queryFn = ({ admin_id, admin_pw }: dto.ILoginForm) => login({ admin_id, admin_pw });
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.login,
     onSuccess: (data: dto.ILogin) => {
       if (!data) {
