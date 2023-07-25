@@ -2,7 +2,7 @@ import { useQuery } from 'react-query';
 
 import { queryKey, thisIdExcept, toastStyle } from '../../../../utils';
 import { dto } from '../../application/dto';
-import CollectionApi from '../domain/collection';
+import { selectDatas } from '../domain/collection';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;
@@ -12,9 +12,7 @@ interface ICollectionFetch {
 }
 
 export const useCollectionFetch = (): ICollectionFetch => {
-  const api = new CollectionApi();
-  
-  const { isLoading, isFetching, data } = useQuery(queryKey.collect.all, () => api.selectDatas(), {
+  const { isLoading, isFetching, data } = useQuery(queryKey.collect.all, () => selectDatas(), {
     staleTime: 1000 * 60 * 20, // 20분
     cacheTime: Infinity,
     retry: false,

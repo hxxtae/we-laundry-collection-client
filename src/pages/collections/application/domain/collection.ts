@@ -1,42 +1,40 @@
 import { api } from '../../../../service/api';
 import { dto } from '../dto';
 
-interface ICollectionApi {
-  selectDatas: () => Promise<dto.CollectionDTO[]>;
-  deleteData: (name: string) => Promise<any>;
-  deleteDatas: (names: string[]) => Promise<any>;
+/**
+ * 📗 API Function : Collection 목록 조회
+ * @returns {Promise<dto.CollectionDTO[]>}
+ */
+export const selectDatas = async (): Promise<dto.CollectionDTO[]> => {
+  const data = await api('/collections', {
+    method: 'GET',
+  });
+  return data;
+};
+
+/**
+ * 📗 API Function : Collection 목록 삭제(단건)
+ * @param {string} name - Collection 이름
+ * @returns { Promise<any> }
+ */
+export const deleteData = async (name: string): Promise<any> => {
+  const data = await api(`/collections/${name}`, {
+    method: 'DELETE',
+  });
+  return data;
 }
 
-class CollectionApi implements ICollectionApi {
-  private api;
-
-  constructor() {
-    this.api = api;
-  }
-
-  async selectDatas(): Promise<dto.CollectionDTO[]> {
-    const data = await this.api('/collections', {
-      method: 'GET',
-    });
-    return data;
-  };
-
-  async deleteData(name: string): Promise<any> {
-    const data = await this.api(`/collections/${name}`, {
-      method: 'DELETE',
-    });
-    return data;
-  }
-
-  async deleteDatas(names: string[]): Promise<any> {
-    const data = await this.api('/collections', {
-      method: 'DELETE',
-      body: JSON.stringify({
-        names,
-      }),
-    });
-    return data;
-  }
+/**
+ * 📗 API Function : Collection 목록 삭제(다건)
+ * @param {string[]} names - Collection 이름(배열)
+ * @returns 
+ */
+export const deleteDatas = async (names: string[]): Promise<any> => {
+  const data = await api('/collections', {
+    method: 'DELETE',
+    body: JSON.stringify({
+      names,
+    }),
+  });
+  return data;
 }
-
-export default CollectionApi;

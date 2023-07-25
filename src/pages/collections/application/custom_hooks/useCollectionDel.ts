@@ -1,7 +1,7 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
 
 import { toastStyle, queryKey, mutateKey } from '../../../../utils';
-import CollectionApi from '../domain/collection';
+import { deleteData } from '../domain/collection';
 
 interface ICollectionDel {
   delMutating: boolean;
@@ -10,8 +10,8 @@ interface ICollectionDel {
 
 export const useCollectionDel = (): ICollectionDel => {
   const client = useQueryClient();
-  const api = new CollectionApi();
-  const { isLoading, mutate } = useMutation((name: string) => api.deleteData(name), {
+  const queryFn = (name: string) => deleteData(name);
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.collect.all,
     onSuccess: () => {
       client.invalidateQueries(queryKey.collect.all);
