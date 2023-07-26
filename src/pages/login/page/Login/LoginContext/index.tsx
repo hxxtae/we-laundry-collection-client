@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { colors } from '../../../../utils/config';
-import { media } from '../../../../utils/mixins';
-import { LoginForm } from './LoginForm';
+import { colors } from '../../../../../utils/config';
+import { media } from '../../../../../utils/mixins';
+import LoginForm from './LoginForm';
 
 function LoginContext() {
   return (
