@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { colors } from '../utils/config';
-import { media } from '../utils/mixins';
+import { colors } from '../../utils/config';
+import { media } from '../../utils/mixins';
 
 function Notfound() {
   return (
