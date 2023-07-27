@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { colors } from '../../../../../utils/config';
-import { useLogin } from '../../../application/custom_hooks';
-import { dto } from '../../../application/dto';
+import { colors } from '../../../../../../utils/config';
+import { useLogin } from '../../../../application/custom_hooks';
+import { dto } from '../../../../application/dto';
 import LoginId from './LoginId';
 import LoginPw from './LoginPw';
 

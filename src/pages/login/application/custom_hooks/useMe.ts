@@ -1,10 +1,10 @@
 import { useQuery } from 'react-query';
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useSetRecoilState } from 'recoil'
 
-import { queryKey } from '../../../../utils/config';
-import { toastStyle } from '../../../../utils/toastConfig';
-import { managerAuth, thisApi } from '../context/login'
-import { IMe } from '../dto/dto';
+import { queryKey, toastStyle } from '../../../../utils';
+import { managerAuth } from '../context/login'
+import { me } from '../domain/login';
+import { dto } from '../dto';
 
 interface IMeHook {
   isLoading: boolean;
@@ -12,19 +12,18 @@ interface IMeHook {
 
 export const useMe = (): IMeHook => {
   const setManager = useSetRecoilState(managerAuth);
-  const api = useRecoilValue(thisApi);
-  const { isLoading } = useQuery(queryKey.auth.me, () => api.me(), {
+  const { isLoading } = useQuery(queryKey.auth.me, me, {
     staleTime: 0,
     cacheTime: 0,
     retry: false,
     refetchOnWindowFocus: false,
     refetchOnMount: 'always',
-    onSuccess: (data) => {
-      const managerData: IMe = data?.data;
-      setManager(managerData.token);
+    suspense: true,
+    onSuccess: (data: dto.IMe) => {
+      setManager(data?.token);
     },
     onError: (err: any) => {
-      toastStyle.info('Please Login');
+      toastStyle.info('Login Error');
     }
   });
 

@@ -1,19 +1,17 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
-import { AxiosResponse } from 'axios';
-import { useRecoilValue } from 'recoil';
 
 import { mutateKey, queryKey, toastStyle } from '../../../../utils';
-import { thisApi } from '../context/atom';
+import { deleteData } from '../domain/user';
 
 interface IUserDel {
   isMutating: boolean;
-  mutate: UseMutateFunction<AxiosResponse<any, any>, unknown, string, unknown>;
+  mutate: UseMutateFunction<boolean, unknown, string, unknown>;
 }
 
 export const useUserDel = (): IUserDel => {
   const query = useQueryClient();
-  const api = useRecoilValue(thisApi);
-  const { isLoading, mutate } = useMutation((username: string) => api.deleteData(username), {
+  const queryFn = (username: string) => deleteData(username);
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.user.all,
     onSuccess: () => {
       query.invalidateQueries(queryKey.user.all);

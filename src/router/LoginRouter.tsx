@@ -1,7 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { lazy } from 'react';
 
-import { NotFound } from '../components';
-import { Login } from '../pages/login/page';
+const Login = lazy(() => import('../pages/login/page/Login'));
+const NotFound = lazy(() => import('../components/Notfound'));
 
 function LoginRouter() {
   return (

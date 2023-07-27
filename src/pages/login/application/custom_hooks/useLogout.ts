@@ -1,27 +1,27 @@
-import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { removeStorageToken, toastStyle, mutateKey } from '../../../../utils';
-import { managerAuth, thisApi } from '../context/login';
+import { managerAuth } from '../context/login';
+import { logout } from '../domain/login';
+import { dto } from '../dto';
 
 interface ILogoutHook {
   isLoading: boolean;
-  logout: UseMutateFunction<AxiosResponse<any, any>, unknown, void, unknown>;
+  logout: UseMutateFunction<dto.ILogout, unknown, void, unknown>;
 }
 
 export const useLogout = (): ILogoutHook => {
-  const api = useRecoilValue(thisApi);
   const setManager = useSetRecoilState(managerAuth);
-  const { isLoading, mutate } = useMutation(() => api.logout(), {
+  const { isLoading, mutate } = useMutation(logout, {
     mutationKey: mutateKey.logout,
-    onSuccess: () => {
-      toastStyle.info('The Manager has logged out');
+    onSuccess: (data: dto.ILogout) => {
+      toastStyle.info(data?.message);
       removeStorageToken();
       setManager(undefined);
     },
     onError: () => {
-      toastStyle.error('logout error');
+      toastStyle.error('Logout Error');
     },
   });
 

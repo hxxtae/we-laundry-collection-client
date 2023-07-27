@@ -1,20 +1,17 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
-import { useRecoilValue } from 'recoil';
-import { AxiosResponse } from 'axios';
 
-import { thisApi } from '../context/atom';
 import { toastStyle, queryKey, mutateKey } from '../../../../utils';
+import { deleteData } from '../domain/collection';
 
 interface ICollectionDel {
   delMutating: boolean;
-  delData: UseMutateFunction<AxiosResponse<any, any>, unknown, string, unknown>;
+  delData: UseMutateFunction<any, unknown, string, unknown>;
 }
 
 export const useCollectionDel = (): ICollectionDel => {
-  const api = useRecoilValue(thisApi);
   const client = useQueryClient();
-
-  const { isLoading, mutate } = useMutation((name: string) => api.deleteData(name), {
+  const queryFn = (name: string) => deleteData(name);
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.collect.all,
     onSuccess: () => {
       client.invalidateQueries(queryKey.collect.all);

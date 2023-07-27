@@ -12,3 +12,7 @@ export interface IMe {
   token: string;
   admin_id: string;
 }
+
+export interface ILogout {
+  message: string;
+}

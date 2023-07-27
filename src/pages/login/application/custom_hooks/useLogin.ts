@@ -1,29 +1,32 @@
-import { AxiosResponse } from 'axios';
 import { UseMutateFunction, useMutation } from 'react-query';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useSetRecoilState } from 'recoil';
 
 import { toastStyle, setStorageToken, mutateKey } from '../../../../utils';
-import { managerAuth, thisApi } from '../context/login';
+import { managerAuth } from '../context/login';
+import { login } from '../domain/login';
 import { dto } from '../dto';
 
 interface ILoginHook {
   isMutating: boolean;
-  login: UseMutateFunction<AxiosResponse<any, any>, any, dto.ILoginForm, unknown>;
+  login: UseMutateFunction<dto.ILogin, any, dto.ILoginForm, unknown>;
 }
 
 export const useLogin = (): ILoginHook => {
   const setManager = useSetRecoilState(managerAuth);
-  const api = useRecoilValue(thisApi);
-  const { isLoading, mutate } = useMutation(({ admin_id, admin_pw }: dto.ILoginForm) => api.login({ admin_id, admin_pw }), {
+  const queryFn = ({ admin_id, admin_pw }: dto.ILoginForm) => login({ admin_id, admin_pw });
+  const { isLoading, mutate } = useMutation(queryFn, {
     mutationKey: mutateKey.login,
-    onSuccess: (data) => {
-      const managerData: dto.ILogin = data?.data;
-      toastStyle.success(`Welcome Back ${data?.data.admin_id} Manager !!`);
-      setStorageToken(managerData.token);
-      setManager(managerData.token);
+    onSuccess: (data: dto.ILogin) => {
+      if (!data) {
+        toastStyle.error('Invalid id and paaword.');
+        return;
+      }
+      toastStyle.success(`Welcome Back ${data?.admin_id} Manager !!`);
+      setStorageToken(data.token);
+      setManager(data.token);
     },
     onError: (err: any) => {
-      toastStyle.error(`${err.message}`);
+      
     }
   });
 

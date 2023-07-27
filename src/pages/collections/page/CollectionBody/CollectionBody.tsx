@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { useCallback } from 'react';
+import styled from 'styled-components';
 
 import { thisIdExcept } from '../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
@@ -29,7 +29,7 @@ function CollectionBody() {
     delMutating || delData(data, {
       onSuccess: () => method.reset(),
     });
-  }, [collectData]);
+  }, [delMutating, delData, method]);
 
   const onDeletes = ({ names }: dto.CollectionNamesDTO) => {
     const datas = names;
@@ -51,7 +51,7 @@ function CollectionBody() {
 
   const onReset = useCallback(() => {
     method.reset();
-  }, []);
+  }, [method]);
 
   return (
     <Section>

@@ -1,28 +1,24 @@
 import { useQuery } from 'react-query';
-import { useRecoilValue } from 'recoil'
 
 import { queryKey, thisIdExcept, toastStyle } from '../../../../utils';
-import { thisApi } from '../context/atom'
 import { dto } from '../../application/dto';
+import { selectDatas } from '../domain/collection';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;
   isCollectFetching: boolean;
-  collectData?: dto.CollectionDTO[] | [];
+  collectData?: dto.CollectionDTO[];
   collectLength: number;
 }
 
 export const useCollectionFetch = (): ICollectionFetch => {
-  const api = useRecoilValue(thisApi);
-  
-  const { isLoading, isFetching, data } = useQuery(queryKey.collect.all, () => api.selectDatas(), {
-    staleTime: 1200000, // 20분
+  const { isLoading, isFetching, data } = useQuery(queryKey.collect.all, () => selectDatas(), {
+    staleTime: 1000 * 60 * 20, // 20분
     cacheTime: Infinity,
     retry: false,
     refetchOnWindowFocus: true,
-    select: (data) => {
-      const result: dto.CollectionDTO[] | [] = data.data;
-      return result.filter((obj) => !thisIdExcept(obj.name));
+    select: (data: dto.CollectionDTO[]) => {
+      return data.filter((obj) => !thisIdExcept(obj.name));
     },
     onError: (err: any) => {
       toastStyle.error(err.message);

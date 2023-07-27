@@ -1,32 +1,26 @@
-import { AxiosResponse } from 'axios';
+import { api } from '../../../../service/api';
+import { dto } from '../dto';
 
-import Https from '../../../../service/https';
-
-interface IUser {
-  selectDatas: () => Promise<AxiosResponse>;
-  deleteData: (username: string) => Promise<AxiosResponse>;
+/**
+ * 📗 API Function : User 목록 조회
+ * @returns {Promise<dto.IUser[]>}
+ */
+export const selectDatas = async (): Promise<dto.IUser[]> => {
+  const data = await api('/users', {
+    method: 'GET',
+  });
+  return data;
 }
 
-class User implements IUser {
-  private https: Https;
-
-  constructor(https: Https) {
-    this.https = https;
-  }
-
-  async selectDatas(): Promise<AxiosResponse> {
-    const data = await this.https.fetch('/users', {
-      method: 'GET',
-    });
-    return data;
-  }
-
-  async deleteData(username: string): Promise<AxiosResponse> {
-    const data = await this.https.fetch(`/users/${username}`, {
-      method: 'DELETE',
-    });
-    return data;
-  };
-}
-
-export default User;
+/**
+ * 📗 API Function : User 목록 삭제(단건)
+ * @param {string} username - User 이름
+ * @returns {Promise<boolean>}
+ */
+export const deleteData = async (username: string): Promise<boolean> => {
+  const data = await api(`/users/${username}`, {
+    method: 'DELETE',
+  });
+  return data;
+};
+  

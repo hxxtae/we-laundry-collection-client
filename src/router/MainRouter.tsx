@@ -1,10 +1,11 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { lazy } from 'react';
 
-import { NotFound } from '../components';
-import { Header } from '../pages/header/page';
-import { Collection } from '../pages/collections/page';
-import { User } from '../pages/users/page';
-import { Footer } from '../pages/footer/page';
+const Header = lazy(() => import('../pages/header/page/Header'));
+const Collection = lazy(() => import('../pages/collections/page/Collection'));
+const User = lazy(() => import('../pages/users/page/User'));
+const Footer = lazy(() => import('../pages/footer/page/Footer'));
+const NotFound = lazy(() => import('../components/Notfound'));
 
 function MainRouter() {
 

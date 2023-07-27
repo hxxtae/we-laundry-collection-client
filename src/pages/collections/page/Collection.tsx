@@ -9,8 +9,6 @@ import CollectionHeader from './CollectionHeader';
 function Collection() {
   const { isLoading: isMutating } = useQueriesMutating(mutateKey.collect.all);
   
-
-
   return (
     <>
       <Containers >
