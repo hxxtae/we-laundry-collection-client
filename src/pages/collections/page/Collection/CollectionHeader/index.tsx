@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../utils';
+import { colors, media } from '../../../../../utils';
 
 function CollectionHeader() {
   

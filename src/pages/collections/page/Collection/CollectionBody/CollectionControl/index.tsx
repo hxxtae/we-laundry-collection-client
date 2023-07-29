@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { memo } from 'react';
 
-import { colors, media } from '../../../../utils';
+import { colors, media } from '../../../../../../utils';
 
 interface ICollectionControl {
   total: number;

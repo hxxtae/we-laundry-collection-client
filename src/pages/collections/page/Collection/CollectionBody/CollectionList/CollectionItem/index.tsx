@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../../../utils';
-import { dto } from '../../../application/dto';
-import InputCheck from './InputCheck';
+import { colors, media } from '../../../../../../../utils';
+import { dto } from '../../../../../application/dto';
+import InputCheck from '../InputCheck';
 
 interface ICollectionItem {
   collection: dto.CollectionDTO;

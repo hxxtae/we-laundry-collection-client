@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { useQueriesMutating } from '../../../hooks/querys';
-import { Containers, Loadings } from '../../../components';
-import { mutateKey } from '../../../utils';
-import { CollectionBody } from './CollectionBody';
+import { useQueriesMutating } from '../../../../hooks/querys';
+import { Containers, Loadings } from '../../../../components';
+import { mutateKey } from '../../../../utils';
+import CollectionBody from './CollectionBody';
 import CollectionHeader from './CollectionHeader';
 
 function Collection() {
@@ -24,8 +24,3 @@ function Collection() {
 }
 
 export default Collection;
-
-
-
-
-

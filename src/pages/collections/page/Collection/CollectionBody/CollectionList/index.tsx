@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { memo } from 'react';
 
-import { colors, noDrag, scroll, thisIdExcept } from '../../../../../utils';
-import { dto } from '../../../application/dto';
+import { colors, noDrag, scroll, thisIdExcept } from '../../../../../../utils';
+import { dto } from '../../../../application/dto';
 import CollectionItem from './CollectionItem';
 
 interface ICollectionList {

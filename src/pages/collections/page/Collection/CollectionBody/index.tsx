@@ -2,10 +2,10 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 import styled from 'styled-components';
 
-import { thisIdExcept } from '../../../../utils';
-import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../application/custom_hooks';
-import { dto } from '../../application/dto';
-import { CollectionList } from './CollectionList';
+import { thisIdExcept } from '../../../../../utils';
+import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../../application/custom_hooks';
+import { dto } from '../../../application/dto';
+import CollectionList from './CollectionList';
 import CollectionControl from './CollectionControl';
 
 function CollectionBody() {
