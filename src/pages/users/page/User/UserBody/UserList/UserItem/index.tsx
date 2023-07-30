@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../../../utils';
-import { dto } from '../../../application/dto';
+import { colors, media } from '../../../../../../../utils';
+import { dto } from '../../../../../application/dto';
 
 interface IUserItem {
   user: dto.IUser;

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { useUserDel, useUserFetch } from '../../application/custom_hooks';
-import { UserList } from './UserList';
+import { useUserDel, useUserFetch } from '../../../application/custom_hooks';
+import UserList from './UserList';
 import UserControl from './UserControl';
 
 function UserBody() {

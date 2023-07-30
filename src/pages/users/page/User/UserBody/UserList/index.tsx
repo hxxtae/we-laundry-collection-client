@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { colors, media, noDrag, scroll } from '../../../../../utils';
-import { dto } from '../../../application/dto';
+import { colors, media, noDrag, scroll } from '../../../../../../utils';
+import { dto } from '../../../../application/dto';
 import UserItem from './UserItem';
 
 interface IUserList {
