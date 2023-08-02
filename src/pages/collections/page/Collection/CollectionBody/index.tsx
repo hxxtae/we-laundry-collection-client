@@ -1,10 +1,10 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import { useCallback } from 'react';
-import styled from 'styled-components';
 
 import { thisIdExcept } from '../../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../../application/custom_hooks';
 import { dto } from '../../../application/dto';
+import * as S from './style';
 import CollectionList from './CollectionList';
 import CollectionControl from './CollectionControl';
 
@@ -54,21 +54,15 @@ function CollectionBody() {
   }, [method]);
 
   return (
-    <Section>
+    <S.Section>
       <FormProvider {...method}>
         <form onSubmit={method.handleSubmit(onDeletes)}>
           <CollectionControl total={collectLength} checkCount={checkCount} onReset={onReset} />
           <CollectionList isLoading={isLoading} collections={collectData} onDelete={onDelete} />
         </form>
       </FormProvider>
-    </Section>
+    </S.Section>
   )
 }
 
 export default CollectionBody;
-
-const Section = styled.section`
-  padding: 20px 0;
-`;
-
-
