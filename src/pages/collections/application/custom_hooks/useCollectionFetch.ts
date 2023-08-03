@@ -1,6 +1,7 @@
 import { useQuery } from 'react-query';
 
-import { queryKey, thisIdExcept, toastStyle } from '../../../../utils';
+import { thisIdExcept, toastStyle } from '../../../../utils';
+import { queryKey } from '../../../../constants';
 import { dto } from '../../application/dto';
 import { selectDatas } from '../domain/collection';
 

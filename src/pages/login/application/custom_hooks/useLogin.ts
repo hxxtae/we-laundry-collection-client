@@ -1,7 +1,8 @@
 import { UseMutateFunction, useMutation } from 'react-query';
 import { useSetRecoilState } from 'recoil';
 
-import { toastStyle, setStorageToken, mutateKey } from '../../../../utils';
+import { toastStyle, setStorageToken } from '../../../../utils';
+import { mutateKey } from '../../../../constants';
 import { managerAuth } from '../context/login';
 import { login } from '../domain/login';
 import { dto } from '../dto';

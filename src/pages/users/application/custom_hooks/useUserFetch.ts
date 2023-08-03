@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query';
 
-import { queryKey } from '../../../../utils/config';
+import { queryKey } from '../../../../constants';
 import { dto } from '../dto';
 import { selectDatas } from '../domain/user';
 

@@ -1,6 +1,6 @@
 import { useQueriesMutating } from '../../../../hooks/querys';
 import { Containers, Loadings } from '../../../../components';
-import { queryKey } from '../../../../utils';
+import { queryKey } from '../../../../constants';
 import UserBody from './UserBody';
 
 function User() {

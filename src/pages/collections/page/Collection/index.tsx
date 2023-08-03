@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useQueriesMutating } from '../../../../hooks/querys';
 import { Containers, Loadings } from '../../../../components';
-import { mutateKey } from '../../../../utils';
+import { mutateKey } from '../../../../constants';
 import CollectionBody from './CollectionBody';
 import CollectionHeader from './CollectionHeader';
 

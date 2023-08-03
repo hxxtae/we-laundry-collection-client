@@ -1,7 +1,8 @@
 import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil'
 
-import { queryKey, toastStyle } from '../../../../utils';
+import { toastStyle } from '../../../../utils';
+import { queryKey } from '../../../../constants';
 import { managerAuth } from '../context/login'
 import { me } from '../domain/login';
 import { dto } from '../dto';

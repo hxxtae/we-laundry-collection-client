@@ -1,6 +1,7 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
 
-import { mutateKey, queryKey, toastStyle } from '../../../../utils';
+import { toastStyle } from '../../../../utils';
+import { queryKey, mutateKey } from '../../../../constants';
 import { deleteData } from '../domain/user';
 
 interface IUserDel {
