@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import * as S from './style';
 
 import { useUserDel, useUserFetch } from '../../../application/custom_hooks';
 import UserList from './UserList';
@@ -21,16 +21,11 @@ function UserBody() {
   }
 
   return (
-    <Section>
+    <S.Section>
       <UserControl total={userLength} />
       <UserList isLoading={isLoading} users={userDatas} onDelete={onDelete} />
-    </Section>
+    </S.Section>
   )
 }
 
 export default UserBody;
-
-const Section = styled.section`
-  padding: 20px 0;
-`;
-
