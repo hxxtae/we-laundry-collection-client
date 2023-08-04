@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../../../utils';
+import { media } from '../../../../../utils';
+import { colors } from '../../../../../styles';
 
 export const Section = styled.section`
   padding: 20px 0;

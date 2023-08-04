@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 import { Containers } from '../../../components';
-import { colors, media } from '../../../utils';
+import { media } from '../../../utils';
+import { colors } from '../../../styles';
 import { useLogout } from '../../login/application/custom_hooks';
 
 function Header() {

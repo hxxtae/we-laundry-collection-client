@@ -1,4 +1,4 @@
-import { mediaSize } from './config';
+import { mediaSize } from '../styles';
 
 export const media = {
   tablet_s: `screen and (min-width: ${mediaSize.BREAKE_POINT_TL_S})`,

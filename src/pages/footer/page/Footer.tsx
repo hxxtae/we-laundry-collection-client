@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Containers } from '../../../components';
-import { colors } from '../../../utils';
+import { colors } from '../../../styles';
 
 function Footer() {
   return (

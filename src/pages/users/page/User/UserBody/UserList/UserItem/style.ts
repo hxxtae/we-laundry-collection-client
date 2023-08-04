@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-import { colors, media } from '../../../../../../../utils';
+import { media } from '../../../../../../../utils';
+import { colors } from '../../../../../../../styles';
 
 export const Item = styled.li`
   display: flex;

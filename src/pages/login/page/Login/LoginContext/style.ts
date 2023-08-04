@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { colors } from '../../../../../utils/config';
+import { colors } from '../../../../../styles';
 import { media } from '../../../../../utils/mixins';
 
 export const Section = styled.section`
