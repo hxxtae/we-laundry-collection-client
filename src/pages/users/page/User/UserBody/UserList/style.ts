@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import { media, noDrag, scroll } from '../../../../../../utils';
-import { colors } from '../../../../../../styles';
+import { media, noDrag, scroll, colors } from '../../../../../../styles';
 
 export const Contain = styled.ul`
   display: flex;

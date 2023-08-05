@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-import { colors } from '../../styles';
-import { media } from '../../utils/mixins';
+import { colors, media } from '../../styles';
 
 function Loadings() {
   return (

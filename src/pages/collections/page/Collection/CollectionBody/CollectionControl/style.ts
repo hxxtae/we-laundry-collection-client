@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-import { media } from '../../../../../../utils';
-import { colors } from '../../.../../../../../../styles';
+import { colors, media } from '../../../../../../styles';
 
 export const Contain = styled.div`
   display: flex;
