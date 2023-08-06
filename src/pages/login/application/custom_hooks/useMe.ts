@@ -14,8 +14,8 @@ interface IMeHook {
 export const useMe = (): IMeHook => {
   const setManager = useSetRecoilState(managerAuth);
   const { isLoading } = useQuery(queryKey.auth.me, me, {
-    staleTime: 0,
-    cacheTime: 0,
+    staleTime: 1000,
+    cacheTime: 1000,
     retry: false,
     refetchOnWindowFocus: false,
     refetchOnMount: 'always',
