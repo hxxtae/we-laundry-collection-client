@@ -1,6 +1,6 @@
 import { FormProvider, useForm } from 'react-hook-form';
 
-import { useLogin } from '../../../../application/custom_hooks';
+import { useLogin } from '../../../../../../hooks/querys/login';
 import { dto } from '../../../../application/dto';
 import * as S from './style';
 import LoginId from './LoginId';

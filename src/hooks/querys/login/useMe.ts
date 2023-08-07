@@ -1,11 +1,11 @@
 import { useQuery } from 'react-query';
 import { useSetRecoilState } from 'recoil'
 
-import { toastStyle } from '../../../../utils';
-import { queryKey } from '../../../../constants';
-import { managerAuth } from '../context/login'
-import { me } from '../domain/login';
-import { dto } from '../dto';
+import { toastStyle } from '../../../utils';
+import { queryKey } from '../../../constants';
+import { managerAuth } from '../../../pages/login/application/context/login';
+import { me } from '../../../pages/login/application/domain/login';
+import { dto } from '../../../pages/login/application/dto';
 
 interface IMeHook {
   isLoading: boolean;

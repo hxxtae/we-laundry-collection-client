@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import { media, colors } from '../../../styles';
 import { Containers } from '../../../components';
-import { useLogout } from '../../login/application/custom_hooks';
+import { useLogout } from '../../../hooks/querys/login';
 
 function Header() {
   const { isLoading, logout } = useLogout();
