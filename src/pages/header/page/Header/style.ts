@@ -1,32 +1,8 @@
 import styled from 'styled-components';
 
-import { media, colors } from '../../../styles';
-import { Containers } from '../../../components';
-import { useLogout } from '../../../hooks/querys/login';
+import { media, colors } from '../../../../styles';
 
-function Header() {
-  const { isLoading, logout } = useLogout();
-
-  const onLogout = () => {
-    return isLoading || logout();
-  }
-
-  return (
-    <Containers>
-      <HeaderBody>
-        <H1>Hxxtae</H1>
-        <H2>
-          Collection status
-          <Logout type="button" onClick={onLogout}>Log out</Logout>
-        </H2>
-      </HeaderBody>
-    </Containers>
-  )
-}
-
-export default Header;
-
-const HeaderBody = styled.section`
+export const HeaderBody = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -39,7 +15,7 @@ const HeaderBody = styled.section`
   }
 `;
 
-const H1 = styled.h1`
+export const H1 = styled.h1`
   font-size: 28px;
   font-weight: 600;
 
@@ -48,7 +24,7 @@ const H1 = styled.h1`
   }
 `;
 
-const H2 = styled.h2`
+export const H2 = styled.h2`
   position: relative;
   font-size: 25px;
   font-weight: 600;
@@ -61,7 +37,7 @@ const H2 = styled.h2`
   }
 `;
 
-const Logout = styled.button`
+export const Logout = styled.button`
   position: absolute;
   top: 3px;
   right: 0;
