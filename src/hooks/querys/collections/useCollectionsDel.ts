@@ -1,8 +1,8 @@
 import { UseMutateFunction, useMutation, useQueryClient } from 'react-query';
 
-import { toastStyle } from '../../../../utils';
-import { queryKey, mutateKey } from '../../../../constants';
-import { deleteDatas } from '../domain/collection';
+import { toastStyle } from '../../../utils';
+import { queryKey, mutateKey } from '../../../constants';
+import { deleteDatas } from '../../../pages/collections/application/domain/collection';
 
 interface ICollectionsDel {
   delsMutating: boolean;

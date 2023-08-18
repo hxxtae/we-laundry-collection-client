@@ -2,7 +2,7 @@ import { FormProvider, useForm } from 'react-hook-form';
 import { useCallback } from 'react';
 
 import { thisIdExcept } from '../../../../../utils';
-import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../../application/custom_hooks';
+import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../../../../hooks/querys/collections';
 import { dto } from '../../../application/dto';
 import * as S from './style';
 import CollectionList from './CollectionList';
