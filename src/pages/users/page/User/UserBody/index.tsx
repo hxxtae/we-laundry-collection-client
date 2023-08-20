@@ -1,6 +1,6 @@
 import * as S from './style';
 
-import { useUserDel, useUserFetch } from '../../../application/custom_hooks';
+import { useUserDel, useUserFetch } from '../../../../../hooks/querys/users';
 import UserList from './UserList';
 import UserControl from './UserControl';
 
