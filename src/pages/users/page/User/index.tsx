@@ -1,4 +1,4 @@
-import { useQueriesMutating } from '../../../../hooks/querys';
+import { useQueriesMutating } from '../../../../hooks/querys/common';
 import { Containers, Loadings } from '../../../../components';
 import { queryKey } from '../../../../constants';
 import UserBody from './UserBody';

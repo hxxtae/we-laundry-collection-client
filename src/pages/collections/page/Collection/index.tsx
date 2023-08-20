@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useQueriesMutating } from '../../../../hooks/querys';
+import { useQueriesMutating } from '../../../../hooks/querys/common';
 import { Containers, Loadings } from '../../../../components';
 import { mutateKey } from '../../../../constants';
 import CollectionBody from './CollectionBody';
