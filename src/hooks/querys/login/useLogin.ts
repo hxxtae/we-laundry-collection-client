@@ -3,7 +3,7 @@ import { useSetRecoilState } from 'recoil';
 
 import { toastStyle, setStorageToken } from '../../../utils';
 import { mutateKey } from '../../../constants';
-import { managerAuth } from '../../../pages/login/application/context/login';
+import { managerAuth } from '../../../contexts/login';
 import { login } from '../../../pages/login/application/domain/login';
 import { dto } from '../../../pages/login/application/dto';
 

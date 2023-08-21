@@ -1,7 +1,7 @@
 import { useRecoilValue } from 'recoil';
 
 import { LoginRouter, MainRouter } from './router';
-import { managerAuth } from './pages/login/application/context/login';
+import { managerAuth } from './contexts/login';
 import { useMe } from './hooks/querys/login';
 
 function App() {
