@@ -4,8 +4,8 @@ import { useSetRecoilState } from 'recoil';
 import { removeStorageToken, toastStyle } from '../../../utils';
 import { mutateKey } from '../../../constants';
 import { managerAuth } from '../../../contexts/login';
-import { logout } from '../../../pages/login/application/domain/login';
-import { dto } from '../../../pages/login/application/dto';
+import { logout } from '../../../service/loginAPI';
+import * as dto from '../../../types/login';
 
 interface ILogoutHook {
   isLoading: boolean;

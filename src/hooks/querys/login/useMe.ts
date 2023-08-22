@@ -4,8 +4,8 @@ import { useSetRecoilState } from 'recoil'
 import { toastStyle } from '../../../utils';
 import { queryKey } from '../../../constants';
 import { managerAuth } from '../../../contexts/login';
-import { me } from '../../../pages/login/application/domain/login';
-import { dto } from '../../../pages/login/application/dto';
+import { me } from '../../../service/loginAPI';
+import * as dto from '../../../types/login';
 
 interface IMeHook {
   isLoading: boolean;

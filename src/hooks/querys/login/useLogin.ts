@@ -4,8 +4,8 @@ import { useSetRecoilState } from 'recoil';
 import { toastStyle, setStorageToken } from '../../../utils';
 import { mutateKey } from '../../../constants';
 import { managerAuth } from '../../../contexts/login';
-import { login } from '../../../pages/login/application/domain/login';
-import { dto } from '../../../pages/login/application/dto';
+import { login } from '../../../service/loginAPI';
+import * as dto from '../../../types/login';
 
 interface ILoginHook {
   isMutating: boolean;
