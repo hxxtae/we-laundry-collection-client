@@ -2,7 +2,7 @@ import { UseMutateFunction, useMutation, useQueryClient } from 'react-query';
 
 import { toastStyle } from '../../../utils';
 import { queryKey, mutateKey } from '../../../constants';
-import { deleteDatas } from '../../../pages/collections/application/domain/collection';
+import { deleteDatas } from '../../../service/collectionsAPI';
 
 interface ICollectionsDel {
   delsMutating: boolean;

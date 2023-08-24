@@ -3,8 +3,8 @@ import { useCallback } from 'react';
 
 import { thisIdExcept } from '../../../../../utils';
 import { useCollectionFetch, useCollectionDel, useCollectionsDel } from '../../../../../hooks/querys/collections';
-import { dto } from '../../../application/dto';
 import * as S from './style';
+import * as dto from '../../../../../types/collections';
 import CollectionList from './CollectionList';
 import CollectionControl from './CollectionControl';
 

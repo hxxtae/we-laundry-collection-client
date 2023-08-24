@@ -1,8 +1,8 @@
 import { memo } from 'react';
 
-import { dto } from '../../../../application/dto';
 import { thisIdExcept } from '../../../../../../utils';
 import * as S from './style';
+import * as dto from '../../../../../../types/collections';
 import CollectionItem from './CollectionItem';
 
 interface ICollectionList {

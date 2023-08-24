@@ -2,8 +2,8 @@ import { useQuery } from 'react-query';
 
 import { thisIdExcept, toastStyle } from '../../../utils';
 import { queryKey } from '../../../constants';
-import { dto } from '../../../pages/collections/application/dto';
-import { selectDatas } from '../../../pages/collections/application/domain/collection';
+import { selectDatas } from '../../../service/collectionsAPI';
+import * as dto from '../../../types/collections';
 
 interface ICollectionFetch {
   isCollectLoading: boolean;

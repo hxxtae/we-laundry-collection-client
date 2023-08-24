@@ -1,5 +1,5 @@
 import * as S from './style';
-import { dto } from '../../../../../application/dto';
+import * as dto from '../../../../../../../types/collections';
 import InputCheck from './InputCheck';
 
 interface ICollectionItem {
