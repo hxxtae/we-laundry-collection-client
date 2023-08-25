@@ -1,4 +1,4 @@
-import { dto } from '../../../../application/dto';
+import * as dto from '../../../../../../types/users';
 import * as S from './style';
 import UserItem from './UserItem';
 

@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query';
 
 import { queryKey } from '../../../constants';
-import { dto } from '../../../pages/users/application/dto';
-import { selectDatas } from '../../../pages/users/application/domain/user';
+import { selectDatas } from '../../../service/usersAPI';
+import * as dto from '../../../types/users';
 
 interface IUserFetch {
   isUserLoading: boolean;

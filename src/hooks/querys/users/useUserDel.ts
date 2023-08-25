@@ -2,7 +2,7 @@ import { UseMutateFunction, useMutation, useQueryClient } from 'react-query'
 
 import { toastStyle } from '../../../utils';
 import { queryKey, mutateKey } from '../../../constants';
-import { deleteData } from '../../../pages/users/application/domain/user';
+import { deleteData } from '../../../service/usersAPI';
 
 interface IUserDel {
   isMutating: boolean;

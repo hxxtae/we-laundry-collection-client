@@ -1,5 +1,5 @@
+import * as dto from '../../../../../../../types/users';
 import * as S from './style';
-import { dto } from '../../../../../application/dto';
 
 interface IUserItem {
   user: dto.IUser;
