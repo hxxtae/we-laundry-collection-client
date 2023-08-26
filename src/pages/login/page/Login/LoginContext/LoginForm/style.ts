@@ -29,6 +29,11 @@ export const Submit = styled.button`
   cursor: pointer;
   transition: opacity 200ms ease-in-out;
 
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+
   &:hover {
     opacity: .6;
   }

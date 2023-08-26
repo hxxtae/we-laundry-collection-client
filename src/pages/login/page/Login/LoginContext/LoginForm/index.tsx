@@ -20,7 +20,7 @@ function LoginForm() {
         <S.Form onSubmit={method.handleSubmit(onLogin)}>
           <LoginId />
           <LoginPw />
-          <S.Submit type="submit">Log in</S.Submit>
+          <S.Submit type="submit" disabled={isMutating}>Log in</S.Submit>
         </S.Form>
       </FormProvider>
     </S.Section>
