@@ -1,5 +1,3 @@
-import { memo } from 'react';
-
 import { thisIdExcept } from '../../../../../../utils';
 import * as S from './style';
 import * as dto from '../../../../../../types/collections';
@@ -13,7 +11,7 @@ interface ICollectionList {
 
 function CollectionList({ isLoading, collections, onDelete }: ICollectionList) {
   console.log("CollectionList");
-  
+
   return (
     <S.Contain>
       {
@@ -27,4 +25,4 @@ function CollectionList({ isLoading, collections, onDelete }: ICollectionList) {
   )
 }
 
-export default memo(CollectionList);
+export default CollectionList;

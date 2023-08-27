@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import * as S from './style';
 import * as dto from '../../../../../../../types/collections';
 import InputCheck from './InputCheck';
@@ -22,4 +24,4 @@ function CollectionItem({ collection, onDelete }: ICollectionItem) {
   )
 }
 
-export default CollectionItem;
+export default memo(CollectionItem);
