@@ -1,6 +1,6 @@
-import * as S from './style';
 import { Containers } from '../../../../components';
 import { useLogout } from '../../../../hooks/querys/login';
+import * as S from './style';
 
 function Header() {
   const { isLoading, logout } = useLogout();

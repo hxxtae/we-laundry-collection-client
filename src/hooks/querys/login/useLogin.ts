@@ -28,7 +28,7 @@ export const useLogin = (): ILoginHook => {
     },
     onError: (err: any) => {
       
-    }
+    },
   });
 
   return { isMutating: isLoading, login: mutate };

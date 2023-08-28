@@ -1,7 +1,6 @@
 import * as S from './style';
 import { Containers } from '../../../../components';
 
-
 function Footer() {
   return (
     <Containers>

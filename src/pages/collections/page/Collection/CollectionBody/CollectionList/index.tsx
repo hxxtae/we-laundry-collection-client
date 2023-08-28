@@ -5,7 +5,7 @@ import CollectionItem from './CollectionItem';
 
 interface ICollectionList {
   isLoading: boolean;
-  collections: dto.CollectionDTO[] | [] | undefined;
+  collections?: dto.CollectionDTO[];
   onDelete: (name: string) => void;
 }
 
