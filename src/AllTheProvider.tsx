@@ -3,9 +3,9 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import { ToastContainer } from 'react-toastify';
 import { RecoilRoot } from 'recoil';
+import { Suspense } from 'react';
 
 import { GlobalStyled } from "./styles/reset";
-import { Suspense } from 'react';
 import { MainLoading } from './components';
 
 interface IAllTheProvider {

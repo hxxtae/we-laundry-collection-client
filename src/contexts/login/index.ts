@@ -1,0 +1,1 @@
+export { managerAuth } from './login';
