@@ -14,6 +14,6 @@ root.render(
 );
 
 console.log(
-  "Website by %c https://hxxtae.me ",
+  "Website by %c https://heetae.dev ",
   "font-size: 14px; line-height: 44px; color: #e7e7e7; background-color: black"
 );
